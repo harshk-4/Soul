@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
-import { Menu, User } from 'lucide-react';
+import { Menu, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Button from '@/components/ui/Button';
 
@@ -15,7 +16,7 @@ const MobileNav = dynamic(() => import('@/components/layout/MobileNav'), {
 const navLinks = [
   { href: '/our-story', label: 'Our Story' },
   { href: '/what-we-offer', label: 'What We Offer' },
-  { href: '/what-makes-us-different', label: 'What Makes Us Different' },
+  { href: '/what-makes-us-different', label: 'Beyond the Ordinary' },
   { href: '/community', label: 'Join Our Community' },
 ];
 
@@ -42,19 +43,27 @@ export function Header() {
             : 'bg-surface/90 backdrop-blur-sm border-b border-outline-variant/50'
         )}
       >
-        <div className="h-20 max-w-[1240px] mx-auto px-6 lg:px-16 flex items-center justify-between gap-8">
-          <div className="flex items-center gap-12">
+        <div className="h-20 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 flex items-center justify-between gap-2 sm:gap-6 lg:gap-8">
+          <div className="flex items-center gap-6 xl:gap-10 min-w-0">
             <Link
               href="/"
               prefetch={true}
-              className="group inline-flex items-baseline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+              aria-label="SoulfulI — Home"
+              className="group inline-flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
             >
-              <span className="font-serif text-[28px] tracking-tight text-primary font-normal group-hover:text-secondary transition-colors">
-                Soulfuli
-              </span>
+              <Image
+                src="/images/soulfulli-logo.png"
+                alt="SoulfulI — bridging intellect & emotion"
+                width={648}
+                height={322}
+                priority
+                quality={95}
+                sizes="(max-width: 640px) 105px, (max-width: 1024px) 120px, 130px"
+                className="h-11 sm:h-12 lg:h-[54px] w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+              />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-8 text-[15px] font-sans font-medium text-on-surface-variant">
+            <nav className="hidden lg:flex items-center gap-7 xl:gap-8 text-[15px] font-sans font-medium text-on-surface-variant whitespace-nowrap">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -76,11 +85,11 @@ export function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-5">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <Button
               href="/eq-audit"
               variant="primary"
-              className="rounded-full px-5 sm:px-6 py-2.5 text-[13px] tracking-wide"
+              className="rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 text-[12px] sm:text-[13px] tracking-wide whitespace-nowrap"
             >
               Take the EQ Audit
             </Button>
@@ -88,16 +97,17 @@ export function Header() {
             <Link
               href="/contact"
               prefetch={true}
-              className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:border-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              aria-label="Contact & Support"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-primary/25 text-primary text-[13px] font-sans font-medium hover:border-primary hover:bg-primary/5 transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Contact Us"
             >
-              <User className="w-4 h-4 text-primary" />
+              <Phone className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
+              <span>Contact Us</span>
             </Link>
 
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden p-2 text-on-surface-variant hover:text-primary rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="lg:hidden p-1.5 sm:p-2 text-on-surface-variant hover:text-primary rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               aria-label="Open navigation menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation-drawer"

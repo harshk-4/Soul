@@ -9,9 +9,9 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Schools & Colleges — Soulfuli Human Development Curriculum',
+  title: 'Nurturing Emotionally Intelligent Minds — Experiential Workshops for Schools & Colleges | Soulfuli',
   description:
-    'Educating the heart alongside the intellect. Foundational emotional intelligence, self-awareness, and mindful communication programs for students and educators.',
+    'Experiential workshops for Schools & Colleges. Foundational emotional intelligence, self-awareness, and mindful communication programs for students and educators.',
   path: '/schools-colleges',
 });
 
@@ -54,11 +54,16 @@ export default function SchoolsCollegesPage() {
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7 space-y-6">
             <Badge variant="sand" dot>
-              Institutional Offering
+              Schools &amp; Colleges
             </Badge>
-            <h1 className="font-serif text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-normal">
-              Educating the heart alongside the intellect.
-            </h1>
+            <div className="space-y-3">
+              <h1 className="font-serif text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-normal">
+                Nurturing Emotionally Intelligent Minds
+              </h1>
+              <p className="font-serif text-xl lg:text-2xl text-secondary italic font-normal leading-snug">
+                Experiential Workshops for Schools &amp; Colleges
+              </p>
+            </div>
             <p className="font-sans text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
               Academic institutions train critical thinking and technical acumen, yet students and faculty frequently navigate acute emotional overwhelm in silence. Soulfuli brings grounded self-awareness and emotional literacy into the classroom.
             </p>

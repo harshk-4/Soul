@@ -31,6 +31,8 @@ const IMAGE_BLUR_DATA_URLS: Record<string, string> = {
     'data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAkAA8BgJbACdH8AGBZdmdQA/uGEnZtBF9uvsEroG8aJs33MhhtlRPo3PZ5r/tCe8R4AAAA=',
   '/images/buddha-forest.webp':
     'data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAA8BgJQBdgCB8gSatQAD+9dBNf4/sWQkpFKOTK6t8IaMas/QVRPQwZSETaYtOc9dhxIKfqZ39vxWQAAAA',
+  '/images/corporate-training.jpeg':
+    'data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQAAsAAwBSJQBWAMYT7M75vDhGb+gA/u5Xe4RZzC/B6B3ufQRmRVQ5KCH0zuZWJ+zd9L5tAaD3XKK73tOS04DUBimW9XfmtYKTMnZj1tql6tk9XG2aUQhZ1WN9w5rKlLgAsoJeIdQAAA==',
   '/images/m1.webp':
     'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoQAAkAA8BgJZQAAtiLCgAA/rYeI5upe/YzqnjRdtZzHbJbQu3BsgAA',
   '/images/t1.webp':

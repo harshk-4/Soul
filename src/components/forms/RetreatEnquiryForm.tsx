@@ -23,7 +23,7 @@ export function RetreatEnquiryForm() {
     name: '',
     email: '',
     phone: '',
-    preferredSeason: '',
+    preferredSeason: 'february-2027',
     roomPreference: '',
     intention: '',
   });
@@ -209,6 +209,7 @@ export function RetreatEnquiryForm() {
           onChange={handleChange}
           error={errors.preferredSeason}
           options={[
+            { value: 'february-2027', label: 'Quiet Bloom Retreat (12 February – 17 February, 2027 · Dharamshala)' },
             { value: 'autumn-gathering', label: 'Autumn Solitude (October · Dharamshala)' },
             { value: 'spring-gathering', label: 'Spring Awakening (March · Dharamshala)' },
             { value: 'summer-monsoon', label: 'Monsoon Stillness (July · Dharamshala)' },
@@ -253,7 +254,7 @@ export function RetreatEnquiryForm() {
           className="w-full sm:w-auto min-w-[220px] rounded-lg"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Submitting...' : 'Apply for Quiet Bloom'}
+          {isSubmitting ? 'Submitting...' : 'Register Now'}
         </Button>
       </div>
     </form>

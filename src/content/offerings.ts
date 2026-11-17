@@ -15,8 +15,51 @@ export interface OfferingItem {
 
 export const offeringsData: OfferingItem[] = [
   {
+    id: 'schools-colleges',
+    title: 'Nurturing Emotionally Intelligent Minds',
+    tagline: 'Experiential Workshops for Schools & Colleges',
+    shortDescription:
+      'Human-development curriculum and experiential workshops designed for students and educators navigating modern pressure and emotional overwhelm.',
+    fullDescription:
+      'Modern education trains analytical aptitude while leaving emotional resilience and self-awareness untended. Soulfuli partners with schools and colleges to offer foundational emotional intelligence and dialogue practices.',
+    href: '/schools-colleges',
+    badgeText: 'Schools & Colleges',
+    badgeVariant: 'sand',
+    imageSrc: '/image/grp.jpeg',
+    imageAlt: 'Young Indian peers engaged in warm, thoughtful conversation outdoors in a meadow',
+    audience: 'Students, Faculty & Educational Leaders',
+    outcomes: [
+      'Emotional literacy and regulation tools',
+      'Non-defensive dialogue and conflict care',
+      'Stress and performance anxiety mitigation',
+      'Cultivation of intrinsic purpose and agency',
+    ],
+  },
+  {
+    id: 'organisations',
+    title: 'Corporate Training',
+    tagline: 'Leading with the heart, not just the numbers.',
+    shortDescription:
+      'Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.',
+    fullDescription:
+      'Organisations invest heavily in skills and strategy, yet leaders and teams often carry pressure, friction, and disconnection quietly. Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.',
+    href: '/organisations',
+    badgeText: 'Corporate Training',
+    badgeVariant: 'forest',
+    imageSrc: '/images/corporate-training.jpeg',
+    imageAlt:
+      'Team members participating in a guided corporate wellness and mindfulness training session in a bright office space',
+    audience: 'Executive Teams & Corporate Leaders',
+    outcomes: [
+      'Emotional intelligence to recognize reactive states',
+      'Reflective space for self-aware leadership',
+      'Intentional, non-defensive communication',
+      'Strengthened trust and empathetic team dynamics',
+    ],
+  },
+  {
     id: 'eq-audit',
-    title: 'The EQ Audit',
+    title: 'Take the EQ Audit',
     tagline: 'A mirror, not a verdict.',
     shortDescription:
       'A 48-question reflective self-discovery experience mapping six core dimensions of emotional awareness, regulation, and intentional communication.',
@@ -36,57 +79,15 @@ export const offeringsData: OfferingItem[] = [
     ],
   },
   {
-    id: 'schools-colleges',
-    title: 'Schools & Colleges',
-    tagline: 'Educating the heart alongside the intellect.',
-    shortDescription:
-      'Human-development curriculum and contemplative workshops designed for students and educators navigating modern pressure and emotional overwhelm.',
-    fullDescription:
-      'Modern education trains analytical aptitude while leaving emotional resilience and self-awareness untended. Soulfuli partners with academic institutions to offer foundational emotional intelligence and dialogue practices.',
-    href: '/schools-colleges',
-    badgeText: 'Institutional Offering',
-    badgeVariant: 'sand',
-    imageSrc: '/image/grp.jpeg',
-    imageAlt: 'Young Indian peers engaged in warm, thoughtful conversation outdoors in a meadow',
-    audience: 'Students, Faculty & Educational Leaders',
-    outcomes: [
-      'Emotional literacy and regulation tools',
-      'Non-defensive dialogue and conflict care',
-      'Stress and performance anxiety mitigation',
-      'Cultivation of intrinsic purpose and agency',
-    ],
-  },
-  {
-    id: 'organisations',
-    title: 'Organisations',
-    tagline: 'Leading with the heart, not just the numbers.',
-    shortDescription:
-      'Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.',
-    fullDescription:
-      'Organisations invest heavily in skills and strategy, yet leaders and teams often carry pressure, friction, and disconnection quietly. Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.',
-    href: '/organisations',
-    badgeText: 'Corporate Offering',
-    badgeVariant: 'forest',
-    imageSrc: '/image/boat.jpeg',
-    imageAlt: 'People travelling together across a tranquil sunlit river on a ferry boat at dusk',
-    audience: 'Executive Teams & Organisations',
-    outcomes: [
-      'Emotional intelligence to recognize reactive states',
-      'Reflective space for self-aware leadership',
-      'Intentional, non-defensive communication',
-      'Strengthened trust and empathetic team dynamics',
-    ],
-  },
-  {
     id: 'quiet-bloom',
-    title: 'Quiet Bloom Retreat',
-    tagline: 'Slow down without falling behind.',
+    title: 'Quiet Bloom Retreats',
+    tagline: '12–17 February 2027 · Slow down without falling behind.',
     shortDescription:
-      'An intimate, premium contemplative gathering in the Himalayan valley of Dharamshala, rooted in mountain silence and village immersion.',
+      'An intimate, contemplative gathering in the Himalayan valley of Dharamshala, rooted in mountain silence and mindful immersion.',
     fullDescription:
-      'Quiet Bloom is a sanctuary for conscious stillness. Set in Dharamshala, Himachal Pradesh, this unhurried experience brings together mindful movement, guided reflection, and mountain solitude to reset your nervous system.',
+      'Quiet Bloom Retreat is a sanctuary for conscious stillness. Set in Dharamshala, Himachal Pradesh, with our upcoming gathering scheduled for 12 February – 17 February, 2027, this unhurried experience brings together mindful movement, guided reflection, and mountain solitude.',
     href: '/quiet-bloom',
-    badgeText: 'Himalayan Retreat',
+    badgeText: '12–17 Feb 2027 · Retreat',
     badgeVariant: 'terracotta',
     imageSrc: '/image/mount.jpeg',
     imageAlt: 'Misty green Himalayan hillside village overlooking terraced mountain slopes',

@@ -9,7 +9,7 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Organisations — Soulfuli Human-Centred Leadership',
+  title: 'Corporate Training — Soulfuli Human-Centred Leadership',
   description:
     'Leading with the heart, not just the numbers. Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.',
   path: '/organisations',
@@ -51,20 +51,25 @@ export default function OrganisationsPage() {
     <div className="w-full flex flex-col items-center">
       {/* SECTION 1: HERO */}
       <section className="w-full px-6 lg:px-16 pt-12 lg:pt-20 pb-16 lg:pb-24 bg-surface border-b border-outline-variant/60">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7 space-y-6">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          <div className="lg:col-span-6 space-y-6">
             <Badge variant="sand" dot>
-              Corporate Offering
+              Corporate Training
             </Badge>
-            <h1 className="font-serif text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-normal">
-              Leading with the heart, not just the numbers.
-            </h1>
+            <div className="space-y-3">
+              <h1 className="font-serif text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-normal">
+                Corporate Training
+              </h1>
+              <p className="font-serif text-xl lg:text-2xl text-secondary italic font-normal leading-snug">
+                Leading with the heart, not just the numbers.
+              </p>
+            </div>
             <p className="font-sans text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
               Organisations invest heavily in skills and strategy, yet leaders and teams often carry pressure, friction, and disconnection quietly. Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.
             </p>
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <Button href="#consultation" variant="primary" size="lg" className="rounded-full">
-                Discuss a Corporate Program
+                Discuss a Corporate Training Program
               </Button>
               <Button href="#threads" variant="secondary" size="lg" className="rounded-full">
                 Explore Our Approach
@@ -72,26 +77,27 @@ export default function OrganisationsPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative">
-            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_64px_-16px_rgba(31,42,36,0.20)] border border-border-alt/80 bg-surface-alt group">
-              <Image
-                src="/image/boat.jpeg"
-                alt="Group of people crossing a serene golden river together on a wooden ferry boat at dusk"
-                fill
-                priority
-                quality={82}
-                sizes="(max-width: 1024px) 92vw, 480px"
-                {...getBlurProps('/image/boat.jpeg')}
-                className="object-cover object-[36%_center] transition-transform duration-1000 ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent pointer-events-none" />
+          <div className="lg:col-span-6 relative">
+            <div className="rounded-2xl overflow-hidden shadow-[0_24px_64px_-16px_rgba(31,42,36,0.18)] border border-border-alt/80 bg-surface-alt group">
+              <div className="relative w-full aspect-[3/2] overflow-hidden bg-surface-alt">
+                <Image
+                  src="/images/corporate-training.jpeg"
+                  alt="Team members participating in a guided corporate wellness and mindfulness training session in a bright office space"
+                  fill
+                  priority
+                  quality={85}
+                  sizes="(max-width: 1024px) 92vw, 560px"
+                  {...getBlurProps('/images/corporate-training.jpeg')}
+                  className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                />
+              </div>
 
-              {/* Floating Editorial Badge */}
-              <div className="absolute bottom-5 left-5 right-5 z-10 bg-[#1F2A24]/60 backdrop-blur-md rounded-xl p-4 border border-white/15 text-white shadow-lg">
+              {/* Editorial Caption Strip */}
+              <div className="bg-primary px-5 py-4 text-white">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-forest" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-tertiary" />
                   <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-white/80 font-medium">
-                    Conscious Leadership
+                    Corporate Training &amp; Conscious Leadership
                   </span>
                 </div>
                 <p className="font-serif text-[16px] text-[#FDFBF7] italic leading-snug">
@@ -146,10 +152,10 @@ export default function OrganisationsPage() {
           <div className="max-w-2xl mx-auto space-y-10">
             <div className="text-center space-y-3">
               <Badge variant="sand" dot>
-                Organisational Partnership
+                Corporate Training Inquiry
               </Badge>
               <h2 className="font-serif text-headline-lg lg:text-display-lg text-primary tracking-tight font-normal">
-                Discuss a Program for Your Organisation
+                Discuss a Corporate Training Program
               </h2>
               <p className="font-sans text-body-md text-on-surface-variant leading-relaxed">
                 Connect with our team to explore workshops, leadership programs, or team development engagements.

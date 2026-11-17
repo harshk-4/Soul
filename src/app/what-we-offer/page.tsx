@@ -15,7 +15,7 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 export const metadata: Metadata = createPageMetadata({
   title: 'What We Offer — Soulfuli Ecosystem',
   description:
-    'Explore the Soulfuli ecosystem: EQ Audit self-discovery mirror, Quiet Bloom Himalayan retreat, Schools & Colleges curriculum, and organisational culture transformation.',
+    'Explore the Soulfuli ecosystem: Nurturing Emotionally Intelligent Minds for Schools & Colleges, Corporate Training, Take the EQ Audit, and Quiet Bloom Retreats.',
   path: '/what-we-offer',
 });
 
@@ -38,7 +38,7 @@ export default function WhatWeOfferPage() {
             Ecosystem Overview
           </ImageEyebrow>
 
-          <ImageHeading as="h1" className="text-display-lg-mobile lg:text-[56px] lg:leading-[64px] max-w-4xl text-white">
+          <ImageHeading as="h1" className="text-[38px] leading-[44px] sm:text-[48px] sm:leading-[56px] lg:text-[56px] lg:leading-[64px] max-w-4xl">
             Portals into self-knowledge and intentional living.
           </ImageHeading>
 

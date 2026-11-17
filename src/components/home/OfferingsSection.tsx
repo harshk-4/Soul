@@ -9,9 +9,9 @@ import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 export default function OfferingsSection() {
   const homepageOfferingIds = [
-    'eq-audit',
     'schools-colleges',
     'organisations',
+    'eq-audit',
     'quiet-bloom',
   ];
 
@@ -56,7 +56,7 @@ export default function OfferingsSection() {
               prefetch={true}
               className="
         group relative overflow-hidden text-left
-        min-h-[245px] rounded-3xl border
+        min-h-[275px] rounded-3xl border
         border-outline-variant/60
         transition-all duration-500 ease-out
         hover:border-primary/60
@@ -91,7 +91,7 @@ export default function OfferingsSection() {
               {/* Card Content */}
               <div className="
         relative z-10 flex flex-col justify-between
-        min-h-[245px] p-5 text-white
+        min-h-[275px] p-5 text-white
       ">
                 <div className="flex items-center justify-between">
                   <span className="text-xs tracking-widest font-mono text-[#FDFBF7]/70">
@@ -106,13 +106,13 @@ export default function OfferingsSection() {
                   </span>
                 </div>
 
-                <div className="mt-12">
-                  <h3 className="font-serif text-2xl leading-tight text-[#FDFBF7] editorial-shadow-subtle">
+                <div className="mt-10">
+                  <h3 className="font-serif text-[21px] leading-snug text-[#FDFBF7] editorial-shadow-subtle">
                     {item.title}
                   </h3>
 
                   <p className="
-            mt-3 text-sm text-[#FDFBF7]/85
+            mt-2.5 text-sm text-[#FDFBF7]/85
             leading-relaxed
           ">
                     {item.tagline}

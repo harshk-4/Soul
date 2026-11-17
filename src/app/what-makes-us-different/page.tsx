@@ -14,9 +14,9 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'What Makes Us Different — Soulfuli',
+  title: 'Beyond the Ordinary — Soulfuli',
   description:
-    'Discover how Soulfuli brings emotional intelligence, mindfulness, spirituality, lived experience, and Indian wisdom together.',
+    'Discover how Soulfuli goes beyond the ordinary by bringing emotional intelligence, mindfulness, spirituality, lived experience, and Indian wisdom together.',
   path: '/what-makes-us-different',
 });
 
@@ -96,12 +96,17 @@ export default function WhatMakesUsDifferentPage() {
       >
         <div className="max-w-[1240px] mx-auto space-y-7 text-white">
           <ImageEyebrow className="text-white">
-            Why We Are Different
+            The Soulfuli Philosophy
           </ImageEyebrow>
 
-          <ImageHeading as="h1" className="max-w-5xl text-display-lg-mobile lg:text-[56px] lg:leading-[64px] text-white">
-            We Do Not Separate the Mind, the Heart, and the Spirit.
-          </ImageHeading>
+          <div className="space-y-4">
+            <ImageHeading as="h1" className="max-w-5xl text-[38px] leading-[44px] sm:text-[48px] sm:leading-[56px] lg:text-[56px] lg:leading-[64px]">
+              Beyond the Ordinary
+            </ImageHeading>
+            <p className="font-serif text-xl sm:text-2xl lg:text-3xl text-white/90 italic font-normal max-w-4xl leading-snug editorial-shadow">
+              We Do Not Separate the Mind, the Heart, and the Spirit.
+            </p>
+          </div>
 
           <div className="w-16 h-0.5 bg-white/80 rounded-full" aria-hidden="true" />
 
@@ -149,7 +154,7 @@ export default function WhatMakesUsDifferentPage() {
 
           <SectionHeading
             align="center"
-            eyebrow="The Soulfuli Difference"
+            eyebrow="Beyond the Ordinary"
             title="Seven principles that shape our approach."
             subtitle="A different way of understanding emotional intelligence, mindfulness, spirituality, and human growth."
           />

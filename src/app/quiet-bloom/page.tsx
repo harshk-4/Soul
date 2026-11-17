@@ -4,18 +4,18 @@ import SectionHeading from '@/components/shared/SectionHeading';
 import RetreatEnquiryForm from '@/components/forms/RetreatEnquiryForm';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
-import { Feather, Clock, MapPin, Users } from 'lucide-react';
+import { Feather, Clock, MapPin, Users, Calendar, Download, ArrowDown } from 'lucide-react';
 import {
   ImageSection,
   ImageEyebrow,
   ImageHeading,
 } from '@/components/shared/ImageSection';
-import { createPageMetadata } from '@/lib/seo/metadata';
+import { createPageMetadata, RETREAT_BROCHURE_URL } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Quiet Bloom Retreat — Dharamshala, Himachal Pradesh | Soulfuli',
+  title: 'Quiet Bloom Retreat (12–17 February 2027) — Dharamshala | Soulfuli',
   description:
-    'Slow down without falling behind. An intimate, premium contemplative retreat in the Himalayan valley of Dharamshala, Himachal Pradesh.',
+    'Join Quiet Bloom Retreat from 12 February – 17 February, 2027 in Dharamshala, Himachal Pradesh. Download the official brochure and register your interest.',
   path: '/quiet-bloom',
 });
 
@@ -36,27 +36,100 @@ export default function QuietBloomPage() {
       >
         <div className="max-w-3xl space-y-6 text-white">
           <ImageEyebrow className="text-white">
-            Dharamshala, Himachal Pradesh · Seasonal Gathering
+            Quiet Bloom Retreat · Dharamshala, Himachal Pradesh
           </ImageEyebrow>
 
-          <ImageHeading as="h1" className="text-display-lg-mobile lg:text-[66px] lg:leading-[74px] text-white">
-            Slow down without falling behind.
+          <div className="inline-flex flex-wrap items-center gap-2.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 px-4 py-2 text-sm font-sans font-medium text-[#FDFBF7] shadow-sm">
+            <Calendar className="w-4 h-4 text-tertiary-fixed shrink-0" aria-hidden="true" />
+            <span>Upcoming Retreat: 12 February – 17 February, 2027</span>
+          </div>
+
+          <ImageHeading as="h1" className="text-[40px] leading-[46px] sm:text-[52px] sm:leading-[58px] lg:text-[66px] lg:leading-[74px]">
+            Quiet Bloom Retreat
           </ImageHeading>
 
           <p className="font-serif text-quote-lg text-white font-normal max-w-xl leading-relaxed italic editorial-shadow">
-            A retreat for returning to conscious movement, grounded contemplation, and mountain silence.
+            Slow down without falling behind. A retreat for returning to conscious movement, grounded contemplation, and mountain silence.
           </p>
 
-          <div className="pt-4 flex flex-wrap items-center gap-5">
+          <div className="pt-4 flex flex-wrap items-center gap-4">
             <Button href="#apply" variant="ivory" size="lg" className="rounded-full shadow-xl hover:shadow-2xl transition-all">
-              Inquire for Gathering
+              Register Now
             </Button>
-            <Button href="#experience" variant="whiteOutline" size="lg" className="rounded-full backdrop-blur-sm">
-              Explore Experience ↓
-            </Button>
+            <a
+              href={RETREAT_BROCHURE_URL}
+              download="Soulfuli-Quiet-Bloom-Retreat-Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[15px] font-medium rounded-full bg-transparent text-white border border-white/60 hover:bg-white/15 hover:border-white backdrop-blur-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            >
+              <Download className="w-4 h-4" aria-hidden="true" />
+              <span>Download Brochure</span>
+            </a>
           </div>
         </div>
       </ImageSection>
+
+      {/* SECTION 1.5: FEBRUARY 2027 RETREAT ANNOUNCEMENT */}
+      <section
+        aria-labelledby="retreat-announcement-heading"
+        className="w-full py-16 lg:py-24 bg-surface-alt-gradient border-b border-border-alt"
+      >
+        <div className="max-w-[1240px] mx-auto px-6 lg:px-16">
+          <div className="rounded-2xl bg-surface border border-border-alt shadow-sm p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <Badge variant="terracotta" dot>
+                Upcoming Retreat Announcement
+              </Badge>
+
+              <h2
+                id="retreat-announcement-heading"
+                className="font-serif text-headline-lg lg:text-display-md text-primary font-normal leading-tight"
+              >
+                Quiet Bloom Retreat — February 2027
+              </h2>
+
+              <div className="inline-flex items-center gap-2.5 rounded-xl bg-surface-alt border border-border-alt px-4 py-3 text-primary font-sans text-sm sm:text-base font-semibold">
+                <Calendar className="w-5 h-5 text-secondary shrink-0" aria-hidden="true" />
+                <span>Retreat Dates: 12 February – 17 February, 2027</span>
+              </div>
+
+              <p className="font-sans text-body-md text-on-surface-variant leading-relaxed max-w-2xl">
+                Registrations are now open for our upcoming Himalayan gathering in Dharamshala. Download the official brochure for complete programme details, and submit your registration below so our facilitator team can personally connect with you.
+              </p>
+            </div>
+
+            <div className="lg:col-span-5 bg-surface-alt rounded-xl border border-border-alt p-6 lg:p-8 space-y-5">
+              <div className="space-y-1.5">
+                <span className="font-sans text-xs uppercase tracking-[0.16em] text-secondary font-semibold block">
+                  Registration &amp; Brochure
+                </span>
+                <p className="font-sans text-sm text-on-surface-variant leading-relaxed">
+                  Every registration is personally reviewed by our facilitators to preserve a quiet, deeply aligned cohort.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <Button href="#apply" variant="terracotta" size="lg" className="w-full rounded-full justify-center gap-2">
+                  <span>Register Now</span>
+                  <ArrowDown className="w-4 h-4" aria-hidden="true" />
+                </Button>
+
+                <a
+                  href={RETREAT_BROCHURE_URL}
+                  download="Soulfuli-Quiet-Bloom-Retreat-Brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 text-[14px] font-medium rounded-full bg-surface text-primary border border-outline-variant hover:border-primary hover:bg-border-alt/40 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  <Download className="w-4 h-4 text-secondary" aria-hidden="true" />
+                  <span>Download Official Brochure (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 2: THE INVITATION & PROVOCATION */}
       <section id="experience" className="w-full py-20 lg:py-32 bg-surface border-b border-outline-variant/60 scroll-mt-20">
@@ -173,13 +246,13 @@ export default function QuietBloomPage() {
           <div className="max-w-2xl mx-auto space-y-10">
             <div className="text-center space-y-3">
               <Badge variant="terracotta" dot>
-                Gathering Intake
+                12 February – 17 February, 2027 · Registration
               </Badge>
               <h2 className="font-serif text-headline-lg lg:text-display-lg text-primary tracking-tight font-normal">
-                Apply for Quiet Bloom
+                Register for Quiet Bloom Retreat
               </h2>
               <p className="font-sans text-body-md text-on-surface-variant leading-relaxed">
-                Please share your intention below. Our facilitators personally review every application to curate a deeply aligned, safe cohort container.
+                Complete the registration form below to express your interest in the February 2027 gathering. Our facilitators personally review every submission and respond within two business days.
               </p>
             </div>
 

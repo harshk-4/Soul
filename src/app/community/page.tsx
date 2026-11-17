@@ -1,17 +1,24 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import SectionHeading from '@/components/shared/SectionHeading';
 import ClosingCTA from '@/components/shared/ClosingCTA';
 import Button from '@/components/ui/Button';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 import {
   ImageSection,
   ImageEyebrow,
   ImageHeading,
   ImageParagraph,
 } from '@/components/shared/ImageSection';
-import { createPageMetadata, INSTAGRAM_URL, LINKEDIN_URL } from '@/lib/seo/metadata';
+import {
+  createPageMetadata,
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  WHATSAPP_CHANNEL_URL,
+} from '@/lib/seo/metadata';
 import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 import {
@@ -44,21 +51,22 @@ const communityWays = [
     number: '02',
     title: 'Follow Our Journey',
     description:
-      'Follow Soulfuli on Instagram and LinkedIn for daily reflections, emotional intelligence insights, and behind-the-scenes moments from what we are building.',
+      'Follow Soulfuli on Instagram, LinkedIn, and our WhatsApp Channel for daily reflections, emotional intelligence insights, and behind-the-scenes updates from what we are building.',
     image: '/image/grp.jpeg',
     imageAlt: 'Three young adults seated outdoors in warm candid conversation',
-    cta: 'Connect With Us',
-    href: '/contact',
+    cta: 'Follow Our Channels',
+    href: '#social-channels',
+    isSocialCard: true,
   },
   {
     number: '03',
     title: 'Join Upcoming Experiences',
     description:
-      'Join the waitlist for Quiet Bloom Retreat and upcoming community gatherings. Be among the first to know when registrations open.',
+      'Explore the upcoming Quiet Bloom Retreat (12 February – 17 February, 2027) in Dharamshala and register to be part of our Himalayan gathering.',
     image: '/image/mount.jpeg',
     imageAlt: 'Misty green Himalayan hillside village overlooking terraced mountain slopes',
-    cta: 'Join the Waitlist',
-    href: '/contact?program=community',
+    cta: 'Explore Quiet Bloom Retreat',
+    href: '/quiet-bloom',
   },
   {
     number: '04',
@@ -91,7 +99,7 @@ export default function CommunityPage() {
             Join Our Community
           </ImageEyebrow>
 
-          <ImageHeading as="h1" className="max-w-4xl text-display-lg-mobile lg:text-[56px] lg:leading-[64px] text-white">
+          <ImageHeading as="h1" className="max-w-4xl text-[38px] leading-[44px] sm:text-[48px] sm:leading-[56px] lg:text-[56px] lg:leading-[64px]">
             This Is Just the Beginning.
           </ImageHeading>
 
@@ -195,14 +203,62 @@ export default function CommunityPage() {
                   </p>
 
                   <div className="pt-3">
-                    <Button
-                      href={item.href}
-                      variant="ghost"
-                      size="sm"
-                    >
-                      {item.cta}
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    {item.isSocialCard ? (
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <a
+                          href={INSTAGRAM_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Follow Soulfuli on Instagram"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-alt border border-border-alt text-xs font-sans font-medium text-primary hover:border-primary/60 hover:bg-border-alt/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        >
+                          <Instagram className="w-3.5 h-3.5 text-secondary" aria-hidden="true" />
+                          <span>Instagram</span>
+                        </a>
+                        <a
+                          href={LINKEDIN_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Connect with Soulfuli on LinkedIn"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-alt border border-border-alt text-xs font-sans font-medium text-primary hover:border-primary/60 hover:bg-border-alt/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        >
+                          <Linkedin className="w-3.5 h-3.5 text-secondary" aria-hidden="true" />
+                          <span>LinkedIn</span>
+                        </a>
+                        {WHATSAPP_CHANNEL_URL ? (
+                          <a
+                            href={WHATSAPP_CHANNEL_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Follow Soulfuli on WhatsApp Channel"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-alt border border-border-alt text-xs font-sans font-medium text-primary hover:border-primary/60 hover:bg-border-alt/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                          >
+                            <WhatsAppIcon className="w-3.5 h-3.5 text-secondary" />
+                            <span>WhatsApp Channel</span>
+                          </a>
+                        ) : (
+                          <Link
+                            href="/contact?program=community"
+                            prefetch={true}
+                            aria-label="WhatsApp Channel — contact us for channel invite"
+                            title="WhatsApp Channel link pending official URL"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-alt border border-border-alt text-xs font-sans font-medium text-primary hover:border-primary/60 hover:bg-border-alt/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                          >
+                            <WhatsAppIcon className="w-3.5 h-3.5 text-secondary" />
+                            <span>WhatsApp Channel</span>
+                          </Link>
+                        )}
+                      </div>
+                    ) : (
+                      <Button
+                        href={item.href}
+                        variant="ghost"
+                        size="sm"
+                      >
+                        {item.cta}
+                        <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    )}
                   </div>
 
                 </div>
@@ -238,18 +294,18 @@ export default function CommunityPage() {
       </section>
 
       {/* SOCIAL CONNECTION */}
-      <section className="w-full bg-surface-alt-gradient py-20 lg:py-28 border-b border-border-alt">
+      <section id="social-channels" className="w-full bg-surface-alt-gradient py-20 lg:py-28 border-b border-border-alt scroll-mt-20">
 
         <div className="max-w-[1000px] mx-auto px-6 lg:px-16 text-center space-y-10">
 
           <SectionHeading
             align="center"
-            eyebrow="Stay Connected"
+            eyebrow="Follow Our Journey"
             title="Follow Along With What We Are Building"
-            subtitle="Discover reflections, insights, and updates from the Soulfuli journey."
+            subtitle="Discover reflections, insights, and updates across Instagram, LinkedIn, and our WhatsApp Channel."
           />
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
 
             <Button
               href={INSTAGRAM_URL}
@@ -273,6 +329,30 @@ export default function CommunityPage() {
               LinkedIn
             </Button>
 
+            {WHATSAPP_CHANNEL_URL ? (
+              <Button
+                href={WHATSAPP_CHANNEL_URL}
+                isExternal
+                variant="secondary"
+                size="lg"
+                aria-label="Follow Soulfuli on WhatsApp Channel"
+              >
+                <WhatsAppIcon className="mr-2 h-4 w-4" />
+                WhatsApp Channel
+              </Button>
+            ) : (
+              <Button
+                href="/contact?program=community"
+                variant="secondary"
+                size="lg"
+                aria-label="WhatsApp Channel — request channel invite via Contact Us"
+                title="WhatsApp Channel link pending official URL"
+              >
+                <WhatsAppIcon className="mr-2 h-4 w-4" />
+                WhatsApp Channel
+              </Button>
+            )}
+
             <Button
               href="/contact"
               variant="primary"
@@ -292,8 +372,8 @@ export default function CommunityPage() {
         eyebrow="The Blooming Continues"
         title="What might change first?"
         description="If your mind, your heart, and your spirit were finally allowed to grow in the same direction at the same time, what might change first?"
-        primaryCtaText="Take the EQ Audit"
-        primaryCtaHref="/eq-audit"
+        primaryCtaText="Explore Quiet Bloom Retreat"
+        primaryCtaHref="/quiet-bloom"
         secondaryCtaText="Explore Our Offerings"
         secondaryCtaHref="/what-we-offer"
       />

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -15,9 +16,9 @@ interface MobileNavProps {
 const navLinks = [
   { href: '/our-story', label: 'Our Story' },
   { href: '/what-we-offer', label: 'What We Offer' },
-  { href: '/what-makes-us-different', label: 'What Makes Us Different' },
+  { href: '/what-makes-us-different', label: 'Beyond the Ordinary' },
   { href: '/community', label: 'Join Our Community' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact Us' },
 ];
 
 export function MobileNav({ isOpen, onClose }: MobileNavProps) {
@@ -69,9 +70,18 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
               href="/"
               prefetch={true}
               onClick={onClose}
-              className="font-serif text-2xl text-primary tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+              aria-label="SoulfulI — Home"
+              className="inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
             >
-              Soulfuli
+              <Image
+                src="/images/soulfulli-logo.png"
+                alt="SoulfulI — bridging intellect & emotion"
+                width={648}
+                height={322}
+                quality={95}
+                sizes="120px"
+                className="h-11 w-auto object-contain"
+              />
             </Link>
             <button
               ref={closeButtonRef}

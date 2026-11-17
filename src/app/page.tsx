@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import { Compass, Feather } from 'lucide-react';
@@ -11,7 +12,12 @@ import {
   ImageHeading,
   ImageParagraph,
 } from '@/components/shared/ImageSection';
-import { createPageMetadata, INSTAGRAM_URL, LINKEDIN_URL } from '@/lib/seo/metadata';
+import {
+  createPageMetadata,
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  WHATSAPP_CHANNEL_URL,
+} from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Soulfuli — Understand yourself deeply enough to live differently',
@@ -156,19 +162,30 @@ export default function HomePage() {
       <OfferingsSection />
 
       {/* =================================================== */}
-      {/* SECTION 4: WHY WE ARE DIFFERENT                     */}
+      {/* SECTION 4: BEYOND THE ORDINARY                      */}
       {/* =================================================== */}
       <section className="w-full bg-surface-alt-gradient border-b border-border-alt">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-16 py-20 lg:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             <div className="lg:col-span-5 space-y-6">
               <Badge variant="sand" dot>
-                Our Difference
+                Beyond the Ordinary
               </Badge>
 
               <h2 className="font-serif text-headline-lg lg:text-display-md text-primary font-normal leading-tight">
-                Why We Are Different
+                Beyond the Ordinary
               </h2>
+
+              <div className="pt-2">
+                <Button
+                  href="/what-makes-us-different"
+                  variant="secondary"
+                  size="md"
+                  className="rounded-full"
+                >
+                  Explore Beyond the Ordinary
+                </Button>
+              </div>
             </div>
 
             <div className="lg:col-span-7 space-y-6 font-sans text-body-lg text-on-surface-variant leading-relaxed">
@@ -251,19 +268,10 @@ export default function HomePage() {
               {/* Calls to Action */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button
-                  href="/eq-audit"
+                  href="/community"
                   variant="ivory"
                   size="lg"
                   className="rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 font-medium"
-                >
-                  Take the EQ Audit
-                </Button>
-
-                <Button
-                  href="/community"
-                  variant="whiteOutline"
-                  size="lg"
-                  className="rounded-full backdrop-blur-sm hover:bg-white/15 transition-all duration-300 font-medium"
                 >
                   Join the Community
                 </Button>
@@ -280,8 +288,8 @@ export default function HomePage() {
                   aria-label="Follow Soulfuli on Instagram"
                 >
                   Instagram
-                </a>{' '}
-                and{' '}
+                </a>
+                ,{' '}
                 <a
                   href={LINKEDIN_URL}
                   target="_blank"
@@ -291,6 +299,26 @@ export default function HomePage() {
                 >
                   LinkedIn
                 </a>
+                , and{' '}
+                {WHATSAPP_CHANNEL_URL ? (
+                  <a
+                    href={WHATSAPP_CHANNEL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-[#F6F0E5] text-[#F6F0E5]/90 transition-colors"
+                    aria-label="Follow Soulfuli on WhatsApp Channel"
+                  >
+                    WhatsApp Channel
+                  </a>
+                ) : (
+                  <Link
+                    href="/contact?program=community"
+                    className="underline underline-offset-2 hover:text-[#F6F0E5] text-[#F6F0E5]/90 transition-colors"
+                    aria-label="WhatsApp Channel — request channel invite via Contact Us"
+                  >
+                    WhatsApp Channel
+                  </Link>
+                )}
                 . Join the community when the doors open.
               </p>
             </div>

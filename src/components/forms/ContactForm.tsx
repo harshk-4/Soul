@@ -242,7 +242,7 @@ export function ContactForm() {
             { value: 'eq-audit', label: 'EQ Audit & Results Consultation' },
             { value: 'quiet-bloom', label: 'Quiet Bloom Himalayan Retreat' },
             { value: 'schools', label: 'Schools & Colleges Curriculum' },
-            { value: 'organisations', label: 'Workplace & Leadership Engagement' },
+            { value: 'organisations', label: 'Corporate Training & Leadership Engagement' },
             { value: 'community', label: 'Community & Upcoming Experiences' },
           ]}
         />

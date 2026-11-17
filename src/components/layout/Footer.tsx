@@ -2,6 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { Instagram, Linkedin } from 'lucide-react';
 import NewsletterForm from '@/components/forms/NewsletterForm';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
+import {
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  OFFICIAL_EMAIL,
+  WHATSAPP_CHANNEL_URL,
+} from '@/lib/seo/metadata';
 
 export function Footer() {
   return (
@@ -30,9 +37,9 @@ export function Footer() {
               <span className="font-sans text-xs tracking-widest uppercase text-surface-container-high/70 block mb-3">
                 Follow &amp; Connect
               </span>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <a
-                  href="https://www.instagram.com/soulfuli_official?obrf=NzlubWljcXcwbW9o&utm_source=qr"
+                  href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-bright/10 hover:bg-surface-bright/20 border border-surface-bright/20 text-surface-bright text-xs font-sans transition-all duration-200 hover:text-white hover:border-surface-bright/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
@@ -42,7 +49,7 @@ export function Footer() {
                   <span>Instagram</span>
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/soulfuli/"
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-bright/10 hover:bg-surface-bright/20 border border-surface-bright/20 text-surface-bright text-xs font-sans transition-all duration-200 hover:text-white hover:border-surface-bright/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
@@ -51,6 +58,29 @@ export function Footer() {
                   <Linkedin className="w-4 h-4 text-secondary-fixed transition-transform duration-200 group-hover:scale-110" />
                   <span>LinkedIn</span>
                 </a>
+                {WHATSAPP_CHANNEL_URL ? (
+                  <a
+                    href={WHATSAPP_CHANNEL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-bright/10 hover:bg-surface-bright/20 border border-surface-bright/20 text-surface-bright text-xs font-sans transition-all duration-200 hover:text-white hover:border-surface-bright/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                    aria-label="Follow Soulfuli on WhatsApp Channel"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 text-secondary-fixed transition-transform duration-200 group-hover:scale-110" />
+                    <span>WhatsApp Channel</span>
+                  </a>
+                ) : (
+                  <Link
+                    href="/contact?program=community"
+                    prefetch={true}
+                    className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-bright/10 hover:bg-surface-bright/20 border border-surface-bright/20 text-surface-bright text-xs font-sans transition-all duration-200 hover:text-white hover:border-surface-bright/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                    aria-label="WhatsApp Channel — contact us for channel invite"
+                    title="WhatsApp Channel link pending official URL"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 text-secondary-fixed transition-transform duration-200 group-hover:scale-110" />
+                    <span>WhatsApp Channel</span>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -74,7 +104,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href="/organisations" prefetch={true} className="hover:text-surface-bright transition-colors">
-                    Organisations
+                    Corporate Training
                   </Link>
                 </li>
                 <li>
@@ -102,7 +132,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href="/what-makes-us-different" prefetch={true} className="hover:text-surface-bright transition-colors">
-                    What Makes Us Different
+                    Beyond the Ordinary
                   </Link>
                 </li>
                 <li>
@@ -120,15 +150,15 @@ export function Footer() {
               <ul className="space-y-2.5 text-sm text-surface-container font-sans">
                 <li>
                   <Link href="/contact" prefetch={true} className="hover:text-surface-bright transition-colors">
-                    Direct Dispatch
+                    Contact Us
                   </Link>
                 </li>
                 <li>
                   <a
-                    href="mailto:soulfuli.global@gmail.com"
+                    href={`mailto:${OFFICIAL_EMAIL}`}
                     className="hover:text-surface-bright transition-colors break-all"
                   >
-                    soulfuli.global@gmail.com
+                    {OFFICIAL_EMAIL}
                   </a>
                 </li>
                 <li>
@@ -142,7 +172,7 @@ export function Footer() {
                   </Link>
                 </li>
                 <li className="pt-2 text-xs text-surface-container-high/60">
-                  Dharamshala · New Delhi
+                  New Delhi, India
                 </li>
               </ul>
             </div>
