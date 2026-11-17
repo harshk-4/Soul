@@ -4,8 +4,9 @@ import Badge from '@/components/ui/Badge';
 import { createPageMetadata, OFFICIAL_EMAIL } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Privacy Policy — Soulfuli',
-  description: 'How Soulfuli collects, protects, and respects your personal and reflective information.',
+  title: 'Privacy Policy | SoulfulI',
+  description:
+    'How SoulfulI (SOULFULL Collective LLP) collects, protects, and respects your personal and reflective information.',
   path: '/privacy',
 });
 

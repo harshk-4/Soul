@@ -14,15 +14,16 @@ import {
 } from '@/components/shared/ImageSection';
 import {
   createPageMetadata,
+  HOMEPAGE_TITLE,
+  HOMEPAGE_DESCRIPTION,
   INSTAGRAM_URL,
   LINKEDIN_URL,
   WHATSAPP_CHANNEL_URL,
 } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Soulfuli — Understand yourself deeply enough to live differently',
-  description:
-    'Soulfuli connects emotional intelligence, mindfulness, and spirituality into one grounded journey toward self-awareness and intentional living.',
+  title: HOMEPAGE_TITLE,
+  description: HOMEPAGE_DESCRIPTION,
   path: '/',
 });
 
@@ -46,7 +47,7 @@ export default function HomePage() {
               </h1>
 
               <p className="font-sans text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-                The space between knowing and becoming. Soulfuli integrates emotional intelligence, mindfulness, and intentional spirituality into one grounded, unhurried journey.
+                The space between knowing and becoming. SoulfulI integrates emotional intelligence, holistic wellbeing, mindfulness, and conscious living into one grounded, unhurried journey.
               </p>
 
               <div className="pt-4 flex flex-wrap items-center gap-4">
@@ -58,14 +59,14 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <div className="pt-6 flex items-center gap-6 text-xs text-on-surface-variant/80 border-t border-outline-variant/40 w-full">
+              <div className="pt-6 flex flex-wrap items-center gap-6 text-xs text-on-surface-variant/80 border-t border-outline-variant/40 w-full">
                 <div className="flex items-center gap-2">
                   <Feather className="w-4 h-4 text-secondary" />
                   <span>A mirror, not a verdict</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Compass className="w-4 h-4 text-secondary" />
-                  <span>48 reflective dimensions</span>
+                  <span>Soulful Intelligence EQ Audit · 48 reflective dimensions</span>
                 </div>
               </div>
             </div>
@@ -145,10 +146,10 @@ export default function HomePage() {
               </ImageParagraph>
 
               <ImageParagraph className="text-base sm:text-lg text-white/95 leading-[1.8] max-w-[58ch]">
-                This is what we mean when we say Soulfuli sits at the intersection of
-                Emotional Intelligence, spirituality, and mindfulness. Not three
+                This is what we mean when we say SoulfulI sits at the intersection of
+                Emotional Intelligence, holistic wellbeing, spirituality, and mindfulness. Not
                 separate offerings stacked side by side, but one continuous practice
-                of paying attention, first to yourself, then to the people around you,
+                of conscious living—paying attention first to yourself, then to the people around you,
                 then to whatever it is you are here to do.
               </ImageParagraph>
             </div>
@@ -252,8 +253,8 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-8 pt-1 lg:pt-3">
               <div className="space-y-6">
                 <ImageParagraph className="text-base sm:text-lg text-[#F6F0E5]/95 leading-[1.8] max-w-[56ch]">
-                  Soulfuli is growing into a community, not just a company. As our tools,
-                  courses, workshops, and retreats go live, we want the people who
+                  SoulfulI is growing into a community, not just a company. As our tools,
+                  experiential workshops, corporate training, and retreats go live, we want the people who
                   believe in this work to be the first to know, the first to join, and
                   eventually, the first to help shape it.
                 </ImageParagraph>

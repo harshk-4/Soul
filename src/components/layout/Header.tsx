@@ -53,9 +53,9 @@ export function Header() {
             >
               <Image
                 src="/images/soulfulli-logo.png"
-                alt="SoulfulI — bridging intellect & emotion"
-                width={648}
-                height={322}
+                alt="SoulfulI — Emotional Intelligence & Holistic Wellbeing"
+                width={379}
+                height={191}
                 priority
                 quality={95}
                 sizes="(max-width: 640px) 105px, (max-width: 1024px) 120px, 130px"

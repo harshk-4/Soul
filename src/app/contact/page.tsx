@@ -25,9 +25,9 @@ import {
 } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Contact Us — Soulfuli',
+  title: 'Contact SoulfulI | SOULFULL Collective LLP',
   description:
-    'Start a deliberate conversation with SOULFULL Collective LLP in New Delhi. Reach us by phone, email, or direct message.',
+    'Contact SoulfulI (SOULFULL Collective LLP) in East of Kailash, New Delhi, India. Reach us by phone, email, or direct message regarding workshops, corporate training, and retreats.',
   path: '/contact',
 });
 

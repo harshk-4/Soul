@@ -37,8 +37,8 @@ export default function OfferingsSection() {
             </h2>
 
             <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed">
-              Explore the practices, workshops, courses, and retreats that make
-              up the Soulfuli ecosystem.
+              Explore the practices, experiential workshops, corporate training, and retreats that make
+              up the SoulfulI ecosystem.
             </p>
           </div>
 
@@ -136,8 +136,9 @@ export default function OfferingsSection() {
         {/* TRAINING & DEVELOPMENT */}
         <div className="mt-10 max-w-4xl space-y-5">
           <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed">
-            Alongside these, we design Training &amp; Development programmes,
-            corporate wellness journeys, and leadership labs for organisations
+            Alongside our experiential workshops for schools &amp; colleges, the Soulful Intelligence EQ Audit,
+            and Quiet Bloom Retreats, we design corporate training programmes,
+            holistic wellbeing journeys, and leadership labs for organisations
             that want emotional intelligence to become part of how their people
             actually work together.
           </p>

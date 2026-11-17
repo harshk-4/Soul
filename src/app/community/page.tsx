@@ -30,9 +30,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Join Our Community — Soulfuli',
+  title: 'Join Our Community | SoulfulI',
   description:
-    'Be part of the Soulfuli community through emotional intelligence, mindfulness, workshops, retreats, and meaningful conversations.',
+    'Be part of the SoulfulI community for emotional intelligence, holistic wellbeing, experiential workshops, retreats, and meaningful conversations.',
   path: '/community',
 });
 

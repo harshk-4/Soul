@@ -14,9 +14,9 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Beyond the Ordinary — Soulfuli',
+  title: 'Beyond the Ordinary – The SoulfulI Approach',
   description:
-    'Discover how Soulfuli goes beyond the ordinary by bringing emotional intelligence, mindfulness, spirituality, lived experience, and Indian wisdom together.',
+    'Explore how SoulfulI goes beyond the ordinary by integrating emotional intelligence, holistic wellbeing, mindfulness, lived experience, and Indian wisdom into conscious living.',
   path: '/what-makes-us-different',
 });
 

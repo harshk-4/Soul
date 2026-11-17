@@ -75,9 +75,9 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             >
               <Image
                 src="/images/soulfulli-logo.png"
-                alt="SoulfulI — bridging intellect & emotion"
-                width={648}
-                height={322}
+                alt="SoulfulI — Emotional Intelligence & Holistic Wellbeing"
+                width={379}
+                height={191}
                 quality={95}
                 sizes="120px"
                 className="h-11 w-auto object-contain"

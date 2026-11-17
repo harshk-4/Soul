@@ -3,11 +3,24 @@ import fs from 'node:fs';
 import path from 'node:path';
 import sitemap from '@/app/sitemap';
 import robots from '@/app/robots';
-import { createPageMetadata, SITE_URL } from '@/lib/seo/metadata';
+import {
+  createPageMetadata,
+  getBrandJsonLd,
+  SITE_NAME,
+  SITE_ALTERNATE_NAME,
+  COMPANY_NAME,
+  SITE_URL,
+  OFFICIAL_LOGO_PATH,
+  DEFAULT_OG_IMAGE_PATH,
+} from '@/lib/seo/metadata';
 
-describe('SEO, canonical, sitemap, and robots configuration', () => {
-  it('uses https://www.soulfuli.org as preferred canonical origin', () => {
+describe('SEO, brand identity, canonical, structured data, sitemap, and robots configuration', () => {
+  it('uses SoulfulI brand identity and https://www.soulfuli.org as preferred canonical origin', () => {
+    expect(SITE_NAME).toBe('SoulfulI');
+    expect(SITE_ALTERNATE_NAME).toBe('Soulfulli');
+    expect(COMPANY_NAME).toBe('SOULFULL Collective LLP');
     expect(SITE_URL).toBe('https://www.soulfuli.org');
+
     const homeMeta = createPageMetadata({
       title: 'Home',
       description: 'Desc',
@@ -15,6 +28,9 @@ describe('SEO, canonical, sitemap, and robots configuration', () => {
     });
     expect(homeMeta.alternates?.canonical).toBe('https://www.soulfuli.org/');
     expect(homeMeta.robots).toMatchObject({ index: true, follow: true });
+    expect(homeMeta.openGraph?.siteName).toBe('SoulfulI');
+    expect(homeMeta.openGraph?.images).toBeDefined();
+    expect(homeMeta.twitter?.images).toBeDefined();
 
     const storyMeta = createPageMetadata({
       title: 'Our Story',
@@ -22,6 +38,54 @@ describe('SEO, canonical, sitemap, and robots configuration', () => {
       path: '/our-story',
     });
     expect(storyMeta.alternates?.canonical).toBe('https://www.soulfuli.org/our-story');
+  });
+
+  it('produces valid, connected Organization and WebSite JSON-LD structured data', () => {
+    const schema = getBrandJsonLd();
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(Array.isArray(schema['@graph'])).toBe(true);
+    expect(schema['@graph']).toHaveLength(2);
+
+    const org = schema['@graph'].find((n) => n['@type'] === 'Organization') as
+      | Record<string, unknown>
+      | undefined;
+    const website = schema['@graph'].find((n) => n['@type'] === 'WebSite') as
+      | Record<string, unknown>
+      | undefined;
+
+    expect(org).toBeDefined();
+    expect(website).toBeDefined();
+
+    expect(org?.['@id']).toBe('https://www.soulfuli.org/#organization');
+    expect(org?.name).toBe('SoulfulI');
+    expect(org?.legalName).toBe('SOULFULL Collective LLP');
+    expect(org?.url).toBe('https://www.soulfuli.org/');
+    expect((org?.logo as Record<string, unknown>)?.url).toBe(
+      `https://www.soulfuli.org${OFFICIAL_LOGO_PATH}`
+    );
+
+    expect(website?.['@id']).toBe('https://www.soulfuli.org/#website');
+    expect(website?.name).toBe('SoulfulI');
+    expect(website?.alternateName).toBe('Soulfulli');
+    expect(website?.url).toBe('https://www.soulfuli.org/');
+    expect(website?.inLanguage).toBe('en');
+    expect((website?.publisher as Record<string, unknown>)?.['@id']).toBe(
+      'https://www.soulfuli.org/#organization'
+    );
+  });
+
+  it('ensures official logo, Open Graph, and favicon brand assets exist on disk', () => {
+    const brandAssets = [
+      OFFICIAL_LOGO_PATH,
+      DEFAULT_OG_IMAGE_PATH,
+      '/images/soulfulli-icon-48.png',
+      '/images/soulfulli-icon-192.png',
+      '/images/soulfulli-apple-touch-icon.png',
+    ];
+    for (const asset of brandAssets) {
+      const fullPath = path.join(process.cwd(), 'public', asset.replace(/^\//, ''));
+      expect(fs.existsSync(fullPath)).toBe(true);
+    }
   });
 
   it('generates sitemap entries only for existing public indexable pages on www', () => {

@@ -13,9 +13,9 @@ import {
 import { createPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'What We Offer — Soulfuli Ecosystem',
+  title: 'Emotional Intelligence, Wellbeing & Experiences | SoulfulI',
   description:
-    'Explore the Soulfuli ecosystem: Nurturing Emotionally Intelligent Minds for Schools & Colleges, Corporate Training, Take the EQ Audit, and Quiet Bloom Retreats.',
+    'Explore SoulfulI offerings: Experiential Workshops for Schools & Colleges, Corporate Training, the Soulful Intelligence EQ Audit, and Quiet Bloom Retreats.',
   path: '/what-we-offer',
 });
 

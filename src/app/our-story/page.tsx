@@ -13,9 +13,9 @@ import {
 import { createPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Our Story — Soulfuli',
+  title: 'Our Story – Discover SoulfulI | SoulfulI',
   description:
-    'Becoming more yourself. Soulfuli began with a simple question: what happens when we stop treating personal growth as something to complete, and start experiencing it as something to live?',
+    'Discover the origin and philosophy of SoulfulI. Learn how we unite emotional intelligence, holistic wellbeing, mindfulness, and practical spirituality into everyday conscious living.',
   path: '/our-story',
 });
 

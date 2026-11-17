@@ -13,9 +13,9 @@ import {
 import { createPageMetadata, RETREAT_BROCHURE_URL } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Quiet Bloom Retreat (12–17 February 2027) — Dharamshala | Soulfuli',
+  title: 'Quiet Bloom Retreat – February 2027 | SoulfulI',
   description:
-    'Join Quiet Bloom Retreat from 12 February – 17 February, 2027 in Dharamshala, Himachal Pradesh. Download the official brochure and register your interest.',
+    'Join SoulfulI’s Quiet Bloom Retreat from 12 February – 17 February, 2027 in Dharamshala, Himachal Pradesh. Download the official brochure and register for our Himalayan gathering.',
   path: '/quiet-bloom',
 });
 

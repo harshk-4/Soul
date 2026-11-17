@@ -9,10 +9,11 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Corporate Training — Soulfuli Human-Centred Leadership',
+  title: 'Corporate Emotional Intelligence Training | SoulfulI',
   description:
-    'Leading with the heart, not just the numbers. Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.',
+    'Corporate emotional intelligence training and conscious leadership programs by SoulfulI. Strengthen self-awareness, team wellbeing, and intentional workplace communication.',
   path: '/organisations',
+  imagePath: '/images/og-soulfuli.png',
 });
 
 const corporatePillars = [

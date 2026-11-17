@@ -4,8 +4,9 @@ import Badge from '@/components/ui/Badge';
 import { createPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Terms of Service — Soulfuli',
-  description: 'Terms of Service governing the use of the Soulfuli platform, programs, and retreats.',
+  title: 'Terms of Service | SoulfulI',
+  description:
+    'Terms of Service governing the use of the SoulfulI (SOULFULL Collective LLP) website, EQ Audit, workshops, corporate training, and retreats.',
   path: '/terms',
 });
 

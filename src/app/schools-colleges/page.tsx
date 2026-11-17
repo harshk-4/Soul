@@ -9,9 +9,9 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 import { getBlurProps } from '@/lib/media/imagePlaceholders';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Nurturing Emotionally Intelligent Minds — Experiential Workshops for Schools & Colleges | Soulfuli',
+  title: 'Emotional Intelligence Workshops for Schools & Colleges | SoulfulI',
   description:
-    'Experiential workshops for Schools & Colleges. Foundational emotional intelligence, self-awareness, and mindful communication programs for students and educators.',
+    'Nurturing Emotionally Intelligent Minds through experiential workshops for schools and colleges. SoulfulI brings emotional literacy, self-awareness, and mindful communication into classrooms.',
   path: '/schools-colleges',
 });
 

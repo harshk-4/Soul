@@ -19,7 +19,7 @@ export function Footer() {
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" prefetch={true} className="inline-block">
               <span className="font-serif text-3xl tracking-tight text-surface-bright">
-                Soulfuli
+                SoulfulI
               </span>
             </Link>
             <p className="font-serif text-xl text-surface-container-high leading-relaxed italic max-w-md">
@@ -181,7 +181,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-surface-container-high/60 font-sans">
-          <p suppressHydrationWarning>© {new Date().getFullYear()} Soulfuli. All rights reserved.</p>
+          <p suppressHydrationWarning>© {new Date().getFullYear()} SoulfulI · SOULFULL Collective LLP. All rights reserved.</p>
           <p className="tracking-wide">Mind + Heart + Spirit → One Journey</p>
         </div>
       </div>

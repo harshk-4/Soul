@@ -4,9 +4,9 @@ import AuditContainer from '@/components/audit/AuditContainer';
 import { createPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'The EQ Audit — Soulfuli Self-Discovery Mirror',
+  title: 'Soulful Intelligence EQ Audit | SoulfulI',
   description:
-    'A quiet 48-question reflective self-discovery experience mapping six core dimensions of emotional awareness, regulation, and intentional communication.',
+    'Take the Soulful Intelligence EQ Audit by SoulfulI — a quiet 48-question reflective self-discovery mirror across six dimensions of emotional awareness, regulation, empathy, and intentional communication.',
   path: '/eq-audit',
 });
 
