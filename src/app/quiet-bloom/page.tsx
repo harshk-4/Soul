@@ -123,7 +123,7 @@ export default function QuietBloomPage() {
                   className="inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 text-[14px] font-medium rounded-full bg-surface text-primary border border-outline-variant hover:border-primary hover:bg-border-alt/40 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   <Download className="w-4 h-4 text-secondary" aria-hidden="true" />
-                  <span>Download Official Brochure (PDF)</span>
+                  <span>Download Brochure (PDF)</span>
                 </a>
               </div>
             </div>
