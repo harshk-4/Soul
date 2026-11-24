@@ -114,16 +114,22 @@ export function RetreatEnquiryForm() {
     return (
       <div
         role="status"
-        className="bg-surface-alt border border-border-alt rounded-xl p-8 lg:p-12 text-center space-y-4 animate-in fade-in-50 duration-300"
+        className="bg-surface-alt border border-border-alt rounded-2xl p-8 sm:p-10 lg:p-12 text-center space-y-4 animate-in fade-in-50 duration-300"
       >
-        <div className="w-12 h-12 rounded-full bg-sage/20 text-forest mx-auto flex items-center justify-center">
-          <CheckCircle2 className="w-6 h-6 text-forest" />
+        <div className="w-12 h-12 rounded-full bg-secondary-fixed/50 text-secondary mx-auto flex items-center justify-center">
+          <CheckCircle2 className="w-6 h-6 text-secondary" />
         </div>
-        <h3 className="font-serif text-headline-md text-primary font-normal">
-          Retreat Application Received
+        <h3 className="font-serif text-headline-sm sm:text-headline-md text-primary font-normal leading-snug">
+          Thank you for registering for the Quiet Bloom Retreat. 🌿
         </h3>
-        <p className="font-sans text-body-md text-on-surface-variant max-w-md mx-auto leading-relaxed">
-          Thank you for sharing your intention with us. Due to intimate cohort sizing (12 participants), our facilitator team will reach out personally within two business days.
+        <p className="font-sans text-body-md text-on-surface-variant max-w-lg mx-auto leading-relaxed">
+          Your registration details have been received. Our team will contact you on WhatsApp with further information regarding confirmation, accommodation, transportation and the retreat schedule.
+        </p>
+        <div className="pt-2 text-xs sm:text-sm font-sans font-medium text-tertiary">
+          12–17 February 2027 | Dharamshala, India
+        </div>
+        <p className="font-serif text-sm text-primary/80 italic">
+          Soulfuli Team
         </p>
       </div>
     );

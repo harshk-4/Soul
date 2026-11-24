@@ -10,6 +10,38 @@ const tableByType = {
   retreat: 'retreat_enquiries',
 } as const;
 
+// In-memory deduplication store: prevents rapid double-clicks and repeated email sends
+const recentSubmissions = new Map<string, number>();
+const DEDUPLICATION_WINDOW_MS = 2 * 60 * 1000; // 2 minutes
+
+function isDuplicateSubmission(
+  type: string,
+  email: string,
+  phone?: string
+): boolean {
+  const cleanEmail = email.toLowerCase().trim();
+  const cleanPhone = (phone || '').replace(/\D/g, '');
+  const key = `${type}:${cleanEmail}:${cleanPhone}`;
+  const now = Date.now();
+  const previous = recentSubmissions.get(key);
+
+  if (previous && now - previous < DEDUPLICATION_WINDOW_MS) {
+    return true;
+  }
+
+  // Periodic pruning of stale keys
+  if (recentSubmissions.size > 200) {
+    for (const [k, time] of recentSubmissions.entries()) {
+      if (now - time > 10 * 60 * 1000) {
+        recentSubmissions.delete(k);
+      }
+    }
+  }
+
+  recentSubmissions.set(key, now);
+  return false;
+}
+
 function formatEnquiryText(
   type: string,
   data: Record<string, string | undefined>
@@ -58,6 +90,23 @@ export async function POST(request: Request) {
   }
 
   const { type, data } = parsed.data;
+
+  // Deduplication check to prevent duplicate emails and double submissions
+  const contactPhone = 'phone' in data ? (data.phone as string) : undefined;
+  if (isDuplicateSubmission(type, data.email, contactPhone)) {
+    return NextResponse.json(
+      {
+        ok: true,
+        duplicate: true,
+        message:
+          type === 'retreat'
+            ? 'Thank you for registering for the Quiet Bloom Retreat. Your registration details have already been received.'
+            : 'Your inquiry has already been received.',
+      },
+      { status: 200 }
+    );
+  }
+
   const labelMap = {
     contact: 'Direct Dispatch',
     organisation: 'Organisation Program Enquiry',
@@ -87,6 +136,11 @@ export async function POST(request: Request) {
       recipient: OFFICIAL_EMAIL,
       data,
     },
+    isRetreat: type === 'retreat',
+    retreatData:
+      type === 'retreat'
+        ? (data as Record<string, string | undefined>)
+        : undefined,
   });
 
   if (!delivery.delivered) {
@@ -103,7 +157,11 @@ export async function POST(request: Request) {
   return NextResponse.json(
     {
       ok: true,
-      message: 'Your inquiry has been delivered.',
+      channels: delivery.channels,
+      message:
+        type === 'retreat'
+          ? 'Thank you for registering for the Quiet Bloom Retreat.'
+          : 'Your inquiry has been delivered.',
     },
     { status: 200 }
   );

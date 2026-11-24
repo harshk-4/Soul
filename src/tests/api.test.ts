@@ -156,5 +156,196 @@ describe('API Endpoints Verification', () => {
     expect(body.emailDelivered).toBe(false);
     expect(body.emailNote).toContain('not configured');
   });
+
+  it('rejects invalid retreat registration email address with 400', async () => {
+    const badReq = new Request('http://localhost/api/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'retreat',
+        data: {
+          name: 'Ananya Sharma',
+          email: 'invalid-email-address',
+          phone: '+919876543210',
+          preferredSeason: 'february-2027',
+          roomPreference: 'single-cottage',
+          intention: 'Seeking silence, meditation, and mindful living in Dharamshala.',
+        },
+      }),
+    });
+
+    const res = await enquiryPost(badReq);
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.ok).toBe(false);
+    expect(body.fieldErrors?.email).toBeDefined();
+  });
+
+  it('successfully delivers retreat registration to Google Form', async () => {
+    const fetchMock = vi.fn().mockImplementation((url: string) => {
+      if (String(url).includes('docs.google.com')) {
+        return Promise.resolve(new Response('ok', { status: 200 }));
+      }
+      return Promise.resolve(new Response('not found', { status: 404 }));
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const req = new Request('http://localhost/api/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'retreat',
+        data: {
+          name: 'Rohit Verma',
+          email: 'rohit.verma@example.com',
+          phone: '+919876500001',
+          preferredSeason: 'february-2027',
+          roomPreference: 'single-cottage',
+          intention: 'Seeking deep reflection and conscious living during the Himalayan gathering.',
+        },
+      }),
+    });
+
+    const res = await enquiryPost(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.ok).toBe(true);
+    expect(body.channels).toContain('google_forms');
+    expect(fetchMock).toHaveBeenCalled();
+    const calledUrl = fetchMock.mock.calls[0][0];
+    expect(calledUrl).toContain('docs.google.com/forms');
+  });
+
+  it('sends participant confirmation email with exact required subject when Resend is configured', async () => {
+    process.env.RESEND_API_KEY = 're_test_key_123';
+    const fetchMock = vi.fn().mockImplementation((url: string) => {
+      if (String(url).includes('docs.google.com')) {
+        return Promise.resolve(new Response('ok', { status: 200 }));
+      }
+      if (String(url).includes('api.resend.com')) {
+        return Promise.resolve(
+          new Response(JSON.stringify({ id: 'resend_email_id' }), { status: 200 })
+        );
+      }
+      return Promise.resolve(new Response('ok', { status: 200 }));
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const req = new Request('http://localhost/api/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'retreat',
+        data: {
+          name: 'Pooja Iyer',
+          email: 'pooja.iyer@example.com',
+          phone: '+919876500002',
+          preferredSeason: 'february-2027',
+          roomPreference: 'shared-slate-suite',
+          intention: 'Looking forward to emotional stillness and intentional breathing.',
+        },
+      }),
+    });
+
+    const res = await enquiryPost(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.ok).toBe(true);
+    expect(body.channels).toContain('participant_confirmation_email');
+
+    // Find the participant confirmation email call
+    const resendCalls = fetchMock.mock.calls.filter(([url]) =>
+      String(url).includes('api.resend.com')
+    );
+    expect(resendCalls.length).toBeGreaterThanOrEqual(1);
+    const participantEmailCall = resendCalls.find((call) => {
+      const payload = JSON.parse(String(call[1]?.body));
+      return payload.to.includes('pooja.iyer@example.com');
+    });
+    expect(participantEmailCall).toBeDefined();
+    const emailPayload = JSON.parse(String(participantEmailCall[1]?.body));
+    expect(emailPayload.subject).toBe(
+      'Registration Received – Quiet Bloom Retreat | Soulfuli 🌿'
+    );
+    expect(emailPayload.text).toContain('Dear Participant,');
+    expect(emailPayload.text).toContain('12–17 February 2027');
+    expect(emailPayload.text).toContain('Dharamshala, India');
+    expect(emailPayload.text).toContain('connect@soulfuli.org');
+  });
+
+  it('handles duplicate registrations correctly without re-triggering delivery', async () => {
+    const fetchMock = vi.fn().mockImplementation(() =>
+      Promise.resolve(new Response('ok', { status: 200 }))
+    );
+    vi.stubGlobal('fetch', fetchMock);
+
+    const duplicatePayload = {
+      type: 'retreat',
+      data: {
+        name: 'Aarav Mehta',
+        email: 'aarav.mehta@example.com',
+        phone: '+919876500003',
+        preferredSeason: 'february-2027',
+        roomPreference: 'flexible',
+        intention: 'Participating in the retreat for personal alignment and mindfulness.',
+      },
+    };
+
+    // First submission
+    const res1 = await enquiryPost(
+      new Request('http://localhost/api/enquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(duplicatePayload),
+      })
+    );
+    expect(res1.status).toBe(200);
+    const initialFetchCount = fetchMock.mock.calls.length;
+
+    // Duplicate submission within short window
+    const res2 = await enquiryPost(
+      new Request('http://localhost/api/enquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(duplicatePayload),
+      })
+    );
+    expect(res2.status).toBe(200);
+    const body2 = await res2.json();
+    expect(body2.ok).toBe(true);
+    expect(body2.duplicate).toBe(true);
+    // Ensure no additional network calls were made for the duplicate
+    expect(fetchMock.mock.calls.length).toBe(initialFetchCount);
+  });
+
+  it('handles failed Google Form submission gracefully and returns error', async () => {
+    process.env.GOOGLE_FORM_RETREAT_URL = 'http://invalid.endpoint/failure';
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response('Form Error', { status: 500 })
+    );
+    vi.stubGlobal('fetch', fetchMock);
+
+    const req = new Request('http://localhost/api/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'retreat',
+        data: {
+          name: 'Failed Submission Test',
+          email: 'failed.test@example.com',
+          phone: '+919876500004',
+          preferredSeason: 'february-2027',
+          roomPreference: 'single-cottage',
+          intention: 'Testing resilience when upstream delivery experiences failure.',
+        },
+      }),
+    });
+
+    const res = await enquiryPost(req);
+    expect(res.status).toBe(502);
+    const body = await res.json();
+    expect(body.ok).toBe(false);
+    expect(body.code).toBe('DELIVERY_FAILED');
+  });
 });
 
