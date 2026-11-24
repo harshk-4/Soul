@@ -12,8 +12,8 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-surface-bright pt-20 pb-12 border-t border-primary/40">
-      <div className="max-w-[1240px] mx-auto px-6 lg:px-16">
+    <footer className="bg-primary text-surface-bright pt-16 sm:pt-20 pb-12 border-t border-primary/40 overflow-hidden">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-surface-bright/15">
           {/* Brand & Dispatch Prompt */}
           <div className="lg:col-span-5 space-y-6">
@@ -22,7 +22,7 @@ export function Footer() {
                 SoulfulI
               </span>
             </Link>
-            <p className="font-serif text-xl text-surface-container-high leading-relaxed italic max-w-md">
+            <p className="font-serif text-lg sm:text-xl text-surface-container-high leading-relaxed italic max-w-md">
               &ldquo;The retreat ends. The workshop ends. The audit gives you a score and closes the tab. But the blooming continues.&rdquo;
             </p>
             <div className="pt-2">
@@ -37,7 +37,7 @@ export function Footer() {
               <span className="font-sans text-xs tracking-widest uppercase text-surface-container-high/70 block mb-3">
                 Follow &amp; Connect
               </span>
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
@@ -86,7 +86,7 @@ export function Footer() {
           </div>
 
           {/* Sitemap Navigation Links */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
             <div className="space-y-4">
               <span className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-secondary-fixed">
                 Pathways

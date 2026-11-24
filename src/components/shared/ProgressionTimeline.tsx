@@ -36,10 +36,10 @@ export function ProgressionTimeline({ milestones, className }: ProgressionTimeli
       </div>
 
       {/* Mobile Vertical Stepper */}
-      <div className="sm:hidden space-y-6 relative pl-6 border-l border-outline-variant">
+      <div className="sm:hidden space-y-6 relative pl-6 ml-2 border-l border-outline-variant">
         {milestones.map((item, idx) => (
           <div key={idx} className="relative space-y-1">
-            <span className="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-background border border-secondary flex items-center justify-center">
+            <span className="absolute -left-[31.5px] top-1 w-3.5 h-3.5 rounded-full bg-background border border-secondary flex items-center justify-center">
               <span className="w-1 h-1 rounded-full bg-primary" />
             </span>
             <span className="font-sans text-label-sm uppercase tracking-wider text-primary font-semibold block">

@@ -43,13 +43,13 @@ export function Header() {
             : 'bg-surface/90 backdrop-blur-sm border-b border-outline-variant/50'
         )}
       >
-        <div className="h-20 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 flex items-center justify-between gap-2 sm:gap-6 lg:gap-8">
+        <div className="h-16 sm:h-20 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 flex items-center justify-between gap-2 sm:gap-6 lg:gap-8">
           <div className="flex items-center gap-6 xl:gap-10 min-w-0">
             <Link
               href="/"
               prefetch={true}
               aria-label="SoulfulI — Home"
-              className="group inline-flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+              className="group inline-flex items-center shrink-0 max-w-[110px] sm:max-w-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
             >
               <Image
                 src="/images/soulfulli-logo.png"
@@ -59,7 +59,7 @@ export function Header() {
                 priority
                 quality={95}
                 sizes="(max-width: 640px) 105px, (max-width: 1024px) 120px, 130px"
-                className="h-11 sm:h-12 lg:h-[54px] w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+                className="h-9 sm:h-12 lg:h-[54px] w-auto max-w-[105px] sm:max-w-none object-contain transition-opacity duration-200 group-hover:opacity-90"
               />
             </Link>
 
@@ -85,13 +85,14 @@ export function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-4 shrink-0">
             <Button
               href="/eq-audit"
               variant="primary"
-              className="rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 text-[12px] sm:text-[13px] tracking-wide whitespace-nowrap"
+              className="rounded-full px-2.5 sm:px-5 lg:px-6 py-1.5 sm:py-2.5 text-[11px] sm:text-[13px] tracking-wide whitespace-nowrap"
             >
-              Take the EQ Audit
+              <span className="hidden min-[360px]:inline">Take the </span>
+              <span>EQ Audit</span>
             </Button>
 
             <Link
@@ -107,12 +108,12 @@ export function Header() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden p-1.5 sm:p-2 text-on-surface-variant hover:text-primary rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="lg:hidden p-1.5 sm:p-2 text-on-surface-variant hover:text-primary rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary shrink-0"
               aria-label="Open navigation menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>

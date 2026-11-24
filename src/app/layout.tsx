@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Newsreader, Plus_Jakarta_Sans } from 'next/font/google';
 import '@/styles/globals.css';
 import Header from '@/components/layout/Header';
@@ -11,6 +11,13 @@ import {
   DEFAULT_OG_IMAGE_PATH,
   getBrandJsonLd,
 } from '@/lib/seo/metadata';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#fdf9f1',
+};
 
 const newsreader = Newsreader({
   subsets: ['latin'],

@@ -12,12 +12,12 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function PrivacyPage() {
   return (
-    <div className="w-full bg-surface px-6 lg:px-16 pt-12 lg:pt-20 pb-24">
-      <div className="max-w-3xl mx-auto space-y-8">
+    <div className="w-full bg-surface px-4 sm:px-6 lg:px-16 pt-8 sm:pt-12 lg:pt-20 pb-16 sm:pb-24">
+      <div className="max-w-3xl mx-auto space-y-6 sm:space-y-8">
         <Badge variant="sand" dot>
-          Legal & Privacy
+          Legal &amp; Privacy
         </Badge>
-        <h1 className="font-serif text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-normal">
+        <h1 className="font-serif text-[28px] sm:text-[38px] lg:text-display-lg leading-[1.12] text-primary tracking-tight font-normal">
           Privacy Policy
         </h1>
         <p className="font-sans text-xs text-secondary uppercase tracking-wider">

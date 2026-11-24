@@ -24,6 +24,8 @@
     scroll-behavior: auto;
     background-color: #fdf9f1;
     color: #1c1c17;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   /* Smooth scrolling scoped to in-page anchor targets, preventing page-transition scroll delay */
@@ -40,6 +42,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
+    max-width: 100%;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
   }
 
   ::selection {

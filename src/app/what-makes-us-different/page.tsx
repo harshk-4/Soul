@@ -92,25 +92,25 @@ export default function WhatMakesUsDifferentPage() {
         enableSubtleZoom={true}
         priority
         className="border-b border-outline-variant/60"
-        containerClassName="w-full px-6 lg:px-16 pt-28 lg:pt-40 pb-28 lg:pb-40"
+        containerClassName="w-full px-4 sm:px-6 lg:px-16 pt-20 sm:pt-28 lg:pt-40 pb-20 sm:pb-28 lg:pb-40"
       >
-        <div className="max-w-[1240px] mx-auto space-y-7 text-white">
+        <div className="max-w-[1240px] mx-auto space-y-6 sm:space-y-7 text-white">
           <ImageEyebrow className="text-white">
             The Soulfuli Philosophy
           </ImageEyebrow>
 
-          <div className="space-y-4">
-            <ImageHeading as="h1" className="max-w-5xl text-[38px] leading-[44px] sm:text-[48px] sm:leading-[56px] lg:text-[56px] lg:leading-[64px]">
+          <div className="space-y-3 sm:space-y-4">
+            <ImageHeading as="h1" className="max-w-5xl text-[30px] leading-[36px] sm:text-[44px] sm:leading-[52px] lg:text-[56px] lg:leading-[64px]">
               Beyond the Ordinary
             </ImageHeading>
-            <p className="font-serif text-xl sm:text-2xl lg:text-3xl text-white/90 italic font-normal max-w-4xl leading-snug editorial-shadow">
+            <p className="font-serif text-lg sm:text-2xl lg:text-3xl text-white/90 italic font-normal max-w-4xl leading-snug editorial-shadow">
               We Do Not Separate the Mind, the Heart, and the Spirit.
             </p>
           </div>
 
           <div className="w-16 h-0.5 bg-white/80 rounded-full" aria-hidden="true" />
 
-          <ImageParagraph className="max-w-3xl text-body-lg text-white/95 leading-[1.8]">
+          <ImageParagraph className="max-w-3xl text-body-md sm:text-body-lg text-white/95 leading-[1.8]">
             We do not treat spirituality as a mood board, mindfulness as a
             five-minute app notification, or emotional intelligence as a
             productivity hack for the workplace.
@@ -119,15 +119,15 @@ export default function WhatMakesUsDifferentPage() {
       </ImageSection>
 
       {/* INTRODUCTION */}
-      <section className="w-full bg-surface py-20 lg:py-28 border-b border-outline-variant/60">
-        <div className="max-w-[900px] mx-auto px-6 lg:px-16 text-center space-y-6">
+      <section className="w-full bg-surface py-16 sm:py-20 lg:py-28 border-b border-outline-variant/60">
+        <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-16 text-center space-y-6">
 
-          <p className="font-serif text-2xl lg:text-4xl leading-relaxed text-primary font-normal">
+          <p className="font-serif text-xl sm:text-2xl lg:text-4xl leading-relaxed text-primary font-normal">
             We treat all three as disciplines—practical, learnable, and
             grounded in real life rather than performance.
           </p>
 
-          <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed">
+          <p className="font-sans text-body-md sm:text-body-lg text-on-surface-variant leading-relaxed">
             Every framework we teach has been lived before it was taught.
             Every practice we offer is meant to be carried home, not left
             behind in the workshop room.
@@ -137,7 +137,7 @@ export default function WhatMakesUsDifferentPage() {
       </section>
 
       {/* DIFFERENTIATORS */}
-      <section className="relative w-full overflow-hidden bg-surface-alt-gradient py-20 lg:py-32 border-b border-border-alt">
+      <section className="relative w-full overflow-hidden bg-surface-alt-gradient py-16 sm:py-20 lg:py-32 border-b border-border-alt">
 
         <Image
           src="/images/m1.webp"
@@ -150,7 +150,7 @@ export default function WhatMakesUsDifferentPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-16 space-y-16">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 space-y-12 sm:space-y-16">
 
           <SectionHeading
             align="center"
@@ -159,7 +159,7 @@ export default function WhatMakesUsDifferentPage() {
             subtitle="A different way of understanding emotional intelligence, mindfulness, spirituality, and human growth."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
             {differentiators.map((item) => (
               <article
@@ -190,15 +190,15 @@ export default function WhatMakesUsDifferentPage() {
                 </div>
 
                 {/* CONTENT */}
-                <div className="p-7 lg:p-8 space-y-5">
+                <div className="p-5 sm:p-7 lg:p-8 space-y-4 sm:space-y-5">
 
-                  <h3 className="font-serif text-2xl lg:text-3xl text-primary font-normal leading-tight">
+                  <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-primary font-normal leading-tight">
                     {item.title}
                   </h3>
 
                   <div className="h-px w-12 bg-terracotta transition-all duration-500 group-hover:w-24" />
 
-                  <p className="font-sans text-body-md text-on-surface-variant leading-relaxed">
+                  <p className="font-sans text-body-sm sm:text-body-md text-on-surface-variant leading-relaxed">
                     {item.description}
                   </p>
 

@@ -17,6 +17,9 @@ const navLinks = [
   { href: '/our-story', label: 'Our Story' },
   { href: '/what-we-offer', label: 'What We Offer' },
   { href: '/what-makes-us-different', label: 'Beyond the Ordinary' },
+  { href: '/schools-colleges', label: 'Schools & Colleges' },
+  { href: '/organisations', label: 'Corporate Training' },
+  { href: '/quiet-bloom', label: 'Quiet Bloom Retreat' },
   { href: '/community', label: 'Join Our Community' },
   { href: '/contact', label: 'Contact Us' },
 ];
@@ -63,72 +66,74 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
       />
 
       {/* Drawer Panel */}
-      <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-surface p-6 shadow-2xl border-l border-outline-variant flex flex-col justify-between overflow-y-auto">
-        <div>
-          <div className="flex items-center justify-between pb-6 border-b border-outline-variant/60">
-            <Link
-              href="/"
-              prefetch={true}
-              onClick={onClose}
-              aria-label="SoulfulI — Home"
-              className="inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
-            >
-              <Image
-                src="/images/soulfulli-logo.png"
-                alt="SoulfulI — Emotional Intelligence & Holistic Wellbeing"
-                width={379}
-                height={191}
-                quality={95}
-                sizes="120px"
-                className="h-11 w-auto object-contain"
-              />
-            </Link>
-            <button
-              ref={closeButtonRef}
-              type="button"
-              onClick={onClose}
-              className="p-2 text-on-surface-variant hover:text-primary rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              aria-label="Close navigation menu"
-            >
-              <X className="w-5 h-5" />
-            </button>
+      <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-surface p-6 shadow-2xl border-l border-outline-variant overflow-y-auto">
+        <div className="min-h-full flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between pb-6 border-b border-outline-variant/60">
+              <Link
+                href="/"
+                prefetch={true}
+                onClick={onClose}
+                aria-label="SoulfulI — Home"
+                className="inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+              >
+                <Image
+                  src="/images/soulfulli-logo.png"
+                  alt="SoulfulI — Emotional Intelligence & Holistic Wellbeing"
+                  width={379}
+                  height={191}
+                  quality={95}
+                  sizes="120px"
+                  className="h-10 w-auto object-contain"
+                />
+              </Link>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={onClose}
+                className="p-2 text-on-surface-variant hover:text-primary rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                aria-label="Close navigation menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <nav className="mt-6 flex flex-col space-y-3.5" aria-label="Mobile menu">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    prefetch={true}
+                    onClick={onClose}
+                    className={cn(
+                      'text-base sm:text-lg font-sans transition-colors py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded',
+                      isActive
+                        ? 'text-primary font-semibold'
+                        : 'text-on-surface-variant hover:text-primary'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
 
-          <nav className="mt-8 flex flex-col space-y-5" aria-label="Mobile menu">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  prefetch={true}
-                  onClick={onClose}
-                  className={cn(
-                    'text-lg font-sans transition-colors py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded',
-                    isActive
-                      ? 'text-primary font-semibold'
-                      : 'text-on-surface-variant hover:text-primary'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-
-        <div className="pt-6 border-t border-outline-variant/60 space-y-3">
-          <Button
-            href="/eq-audit"
-            variant="primary"
-            className="w-full rounded-full py-3 text-sm"
-            onClick={onClose}
-          >
-            Take the EQ Audit
-          </Button>
-          <p className="text-center text-xs text-outline pt-2">
-            Mind · Heart · Spirit
-          </p>
+          <div className="pt-6 border-t border-outline-variant/60 space-y-3 mt-6">
+            <Button
+              href="/eq-audit"
+              variant="primary"
+              className="w-full rounded-full py-3 text-sm"
+              onClick={onClose}
+            >
+              Take the EQ Audit
+            </Button>
+            <p className="text-center text-xs text-outline pt-2">
+              Mind · Heart · Spirit
+            </p>
+          </div>
         </div>
       </div>
     </div>

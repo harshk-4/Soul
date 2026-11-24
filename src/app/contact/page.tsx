@@ -12,6 +12,7 @@ import {
   Linkedin,
   Phone,
   Building2,
+  Mail,
 } from 'lucide-react';
 import {
   createPageMetadata,
@@ -33,17 +34,17 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="w-full min-h-screen bg-surface px-6 lg:px-16 pt-12 lg:pt-20 pb-24">
-      <div className="max-w-[1240px] mx-auto space-y-12 lg:space-y-14">
+    <div className="w-full min-h-screen bg-surface px-4 sm:px-6 lg:px-16 pt-8 sm:pt-12 lg:pt-20 pb-16 sm:pb-24">
+      <div className="max-w-[1240px] mx-auto space-y-10 sm:space-y-12 lg:space-y-14">
         {/* Header */}
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-3 sm:space-y-4">
           <Badge variant="sage" dot>
             Contact Us
           </Badge>
-          <h1 className="font-serif text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-normal">
+          <h1 className="font-serif text-[30px] sm:text-[40px] lg:text-display-lg leading-[1.12] text-primary tracking-tight font-normal">
             Start a deliberate conversation.
           </h1>
-          <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed">
+          <p className="font-sans text-body-md sm:text-body-lg text-on-surface-variant leading-relaxed">
             We treat every dispatch with personal care. You will receive a thoughtful human reply within two business days. Zero automated marketing drip campaigns.
           </p>
         </div>
@@ -51,7 +52,7 @@ export default function ContactPage() {
         {/* Official Contact Us Details */}
         <section
           aria-labelledby="contact-us-details-heading"
-          className="bg-surface-alt p-6 sm:p-8 lg:p-10 rounded-2xl border border-border-alt shadow-sm"
+          className="bg-surface-alt p-5 sm:p-8 lg:p-10 rounded-2xl border border-border-alt shadow-sm"
         >
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
             <div className="flex items-start gap-4 max-w-2xl">
@@ -86,29 +87,44 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="lg:min-w-[260px] pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-border-alt lg:pl-8 space-y-3">
-              <span className="font-sans text-xs uppercase tracking-[0.16em] text-secondary font-semibold block">
-                Mobile Numbers
-              </span>
-              <div className="flex flex-col gap-2.5">
-                {OFFICIAL_PHONES.map((phone) => (
-                  <a
-                    key={phone.display}
-                    href={`tel:${phone.tel}`}
-                    className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface border border-border-alt text-primary font-sans text-sm font-semibold hover:border-primary/60 hover:bg-border-alt/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                  >
-                    <Phone className="w-4 h-4 text-secondary shrink-0" aria-hidden="true" />
-                    <span>{phone.display}</span>
-                  </a>
-                ))}
+            <div className="lg:min-w-[280px] pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-border-alt lg:pl-8 space-y-4">
+              <div>
+                <span className="font-sans text-xs uppercase tracking-[0.16em] text-secondary font-semibold block mb-2.5">
+                  Mobile Numbers
+                </span>
+                <div className="flex flex-col gap-2.5">
+                  {OFFICIAL_PHONES.map((phone) => (
+                    <a
+                      key={phone.display}
+                      href={`tel:${phone.tel}`}
+                      className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface border border-border-alt text-primary font-sans text-sm font-semibold hover:border-primary/60 hover:bg-border-alt/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    >
+                      <Phone className="w-4 h-4 text-secondary shrink-0" aria-hidden="true" />
+                      <span>{phone.display}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <span className="font-sans text-xs uppercase tracking-[0.16em] text-secondary font-semibold block mb-2.5">
+                  Official Email
+                </span>
+                <a
+                  href={`mailto:${OFFICIAL_EMAIL}`}
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface border border-border-alt text-primary font-sans text-sm font-semibold hover:border-primary/60 hover:bg-border-alt/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary break-all"
+                >
+                  <Mail className="w-4 h-4 text-secondary shrink-0" aria-hidden="true" />
+                  <span>{OFFICIAL_EMAIL}</span>
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: Contact Form */}
-          <div className="lg:col-span-7 bg-surface-alt p-6 lg:p-10 rounded-2xl border border-border-alt shadow-sm">
+          <div className="lg:col-span-7 bg-surface-alt p-5 sm:p-8 lg:p-10 rounded-2xl border border-border-alt shadow-sm">
             <Suspense
               fallback={
                 <div className="py-12 text-center font-sans text-sm text-on-surface-variant">
@@ -154,18 +170,24 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="p-6 bg-surface-alt rounded-xl border border-border-alt space-y-2">
-              <h2 className="font-serif text-lg text-primary font-normal">
-                Direct Electronic Mail
-              </h2>
-              <p className="font-sans text-xs text-on-surface-variant">
-                For direct press, publishing, or institutional correspondence:
+            <div className="p-6 bg-surface-alt rounded-xl border border-border-alt space-y-3">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-surface border border-border-alt flex items-center justify-center text-secondary shrink-0">
+                  <Mail className="w-4 h-4" aria-hidden="true" />
+                </div>
+                <h2 className="font-serif text-lg text-primary font-normal">
+                  Direct Electronic Mail
+                </h2>
+              </div>
+              <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
+                For direct press, publishing, partnerships, or personal correspondence:
               </p>
               <a
                 href={`mailto:${OFFICIAL_EMAIL}`}
-                className="font-sans text-sm font-semibold text-on-tertiary-fixed-variant hover:underline block pt-1 break-all"
+                className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-terracotta hover:underline pt-1 break-all"
               >
-                {OFFICIAL_EMAIL}
+                <Mail className="w-3.5 h-3.5 text-terracotta shrink-0" aria-hidden="true" />
+                <span>{OFFICIAL_EMAIL}</span>
               </a>
             </div>
 

@@ -42,7 +42,7 @@ export function ClosingCTA({
         className={cn('border-t border-border-alt', className)}
         containerClassName="py-20 lg:py-28"
       >
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-16 text-center text-white">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 text-center text-white">
           <div className="max-w-2xl mx-auto space-y-6 flex flex-col items-center text-white">
             <ImageEyebrow>{eyebrow}</ImageEyebrow>
             <ImageHeading as="h2" className="text-headline-lg lg:text-display-lg leading-[1.15]">
@@ -51,12 +51,12 @@ export function ClosingCTA({
             <ImageParagraph className="mx-auto text-center">
               {description}
             </ImageParagraph>
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-              <Button href={primaryCtaHref} variant="ivory" size="lg" className="rounded-full">
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full">
+              <Button href={primaryCtaHref} variant="ivory" size="lg" className="w-full sm:w-auto rounded-full">
                 {primaryCtaText}
               </Button>
               {secondaryCtaText && secondaryCtaHref && (
-                <Button href={secondaryCtaHref} variant="whiteOutline" size="lg" className="rounded-full">
+                <Button href={secondaryCtaHref} variant="whiteOutline" size="lg" className="w-full sm:w-auto rounded-full">
                   {secondaryCtaText}
                 </Button>
               )}
@@ -69,23 +69,23 @@ export function ClosingCTA({
 
   return (
     <section className={cn('w-full py-20 lg:py-28 bg-surface-alt-gradient border-t border-border-alt', className)}>
-      <div className="max-w-[1240px] mx-auto px-6 lg:px-16 text-center">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           <span className="font-sans text-label-sm uppercase tracking-widest text-secondary font-semibold block">
             {eyebrow}
           </span>
-          <h2 className="font-serif text-headline-lg lg:text-display-lg text-primary tracking-tight font-normal leading-[1.15]">
+          <h2 className="font-serif text-[28px] sm:text-[36px] lg:text-display-lg text-primary tracking-tight font-normal leading-[1.15]">
             {title}
           </h2>
           <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed">
             {description}
           </p>
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-            <Button href={primaryCtaHref} variant="primary" size="lg" className="rounded-full">
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full">
+            <Button href={primaryCtaHref} variant="primary" size="lg" className="w-full sm:w-auto rounded-full">
               {primaryCtaText}
             </Button>
             {secondaryCtaText && secondaryCtaHref && (
-              <Button href={secondaryCtaHref} variant="secondary" size="lg" className="rounded-full">
+              <Button href={secondaryCtaHref} variant="secondary" size="lg" className="w-full sm:w-auto rounded-full">
                 {secondaryCtaText}
               </Button>
             )}

@@ -71,7 +71,7 @@ describe('API Endpoints Verification', () => {
     expect(body.code).toBe('DELIVERY_NOT_CONFIGURED');
   });
 
-  it('delivers valid enquiry to soulfuli.global@gmail.com when Resend is configured', async () => {
+  it('delivers valid enquiry to connect@soulfuli.org when Resend is configured', async () => {
     process.env.RESEND_API_KEY = 're_test_key_123';
     const fetchMock = vi.fn().mockResolvedValue(
       new Response(JSON.stringify({ id: 'email_1' }), { status: 200 })
@@ -101,11 +101,11 @@ describe('API Endpoints Verification', () => {
     expect(body.ok).toBe(true);
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const sentPayload = JSON.parse(String(fetchMock.mock.calls[0][1]?.body));
-    expect(sentPayload.to).toEqual(['soulfuli.global@gmail.com']);
+    expect(sentPayload.to).toEqual(['connect@soulfuli.org']);
     expect(sentPayload.reply_to).toBe('k.rao@college.edu');
   });
 
-  it('validates newsletter email and delivers to soulfuli.global@gmail.com when configured', async () => {
+  it('validates newsletter email and delivers to connect@soulfuli.org when configured', async () => {
     process.env.RESEND_API_KEY = 're_test_key_123';
     const fetchMock = vi.fn().mockResolvedValue(
       new Response(JSON.stringify({ id: 'email_2' }), { status: 200 })
@@ -128,7 +128,7 @@ describe('API Endpoints Verification', () => {
     const goodRes = await newsletterPost(goodReq);
     expect(goodRes.status).toBe(200);
     const sentPayload = JSON.parse(String(fetchMock.mock.calls[0][1]?.body));
-    expect(sentPayload.to).toEqual(['soulfuli.global@gmail.com']);
+    expect(sentPayload.to).toEqual(['connect@soulfuli.org']);
   });
 
   it('rejects incomplete EQ audit answers and calculates server-side result when complete', async () => {

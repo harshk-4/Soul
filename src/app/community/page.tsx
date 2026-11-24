@@ -92,20 +92,20 @@ export default function CommunityPage() {
         enableSubtleZoom={true}
         priority
         className="border-b border-outline-variant/60"
-        containerClassName="w-full px-6 lg:px-16 pt-28 lg:pt-40 pb-28 lg:pb-40"
+        containerClassName="w-full px-4 sm:px-6 lg:px-16 pt-20 sm:pt-28 lg:pt-40 pb-20 sm:pb-28 lg:pb-40"
       >
-        <div className="max-w-[1240px] mx-auto space-y-7 text-white">
+        <div className="max-w-[1240px] mx-auto space-y-6 sm:space-y-7 text-white">
           <ImageEyebrow className="text-white">
             Join Our Community
           </ImageEyebrow>
 
-          <ImageHeading as="h1" className="max-w-4xl text-[38px] leading-[44px] sm:text-[48px] sm:leading-[56px] lg:text-[56px] lg:leading-[64px]">
+          <ImageHeading as="h1" className="max-w-4xl text-[30px] leading-[36px] sm:text-[44px] sm:leading-[52px] lg:text-[56px] lg:leading-[64px]">
             This Is Just the Beginning.
           </ImageHeading>
 
           <div className="w-16 h-0.5 bg-white/80 rounded-full" aria-hidden="true" />
 
-          <ImageParagraph className="max-w-2xl text-body-lg text-white/95 leading-[1.8]">
+          <ImageParagraph className="max-w-2xl text-body-md sm:text-body-lg text-white/95 leading-[1.8]">
             Soulfuli is growing into a community, not just a company.
             We are building this space one honest conversation, one
             workshop, and one retreat at a time.
@@ -114,19 +114,19 @@ export default function CommunityPage() {
       </ImageSection>
 
       {/* INTRODUCTION */}
-      <section className="w-full bg-surface py-20 lg:py-28 border-b border-outline-variant/60">
+      <section className="w-full bg-surface py-16 sm:py-20 lg:py-28 border-b border-outline-variant/60">
 
-        <div className="max-w-[900px] mx-auto px-6 lg:px-16 text-center space-y-7">
+        <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-16 text-center space-y-6 sm:space-y-7">
 
           <span className="font-sans text-xs uppercase tracking-[0.2em] text-secondary font-semibold">
             Be Part of What Comes Next
           </span>
 
-          <h2 className="font-serif text-3xl lg:text-5xl text-primary font-normal leading-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-5xl text-primary font-normal leading-tight">
             Grow slowly with the right people.
           </h2>
 
-          <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed">
+          <p className="font-sans text-body-md sm:text-body-lg text-on-surface-variant leading-relaxed">
             We would rather grow slowly with the right people than grow
             fast with the wrong incentives. If any part of our work
             resonates with you, there are several ways to be part of
@@ -137,7 +137,7 @@ export default function CommunityPage() {
       </section>
 
       {/* COMMUNITY WAYS */}
-      <section className="relative w-full overflow-hidden bg-surface-alt-gradient py-20 lg:py-32 border-b border-border-alt">
+      <section className="relative w-full overflow-hidden bg-surface-alt-gradient py-16 sm:py-20 lg:py-32 border-b border-border-alt">
 
         <Image
           src="/images/m1.webp"
@@ -150,7 +150,7 @@ export default function CommunityPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-16 space-y-16">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 space-y-12 sm:space-y-16">
 
           <SectionHeading
             align="center"
@@ -271,20 +271,20 @@ export default function CommunityPage() {
       </section>
 
       {/* COMMUNITY STATEMENT */}
-      <section className="w-full bg-surface py-20 lg:py-32 border-b border-outline-variant/60">
+      <section className="w-full bg-surface py-16 sm:py-20 lg:py-32 border-b border-outline-variant/60">
 
-        <div className="max-w-[1000px] mx-auto px-6 lg:px-16 text-center space-y-8">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-16 text-center space-y-6 sm:space-y-8">
 
           <Users className="mx-auto h-8 w-8 text-secondary" />
 
-          <blockquote className="font-serif text-3xl lg:text-5xl text-primary leading-tight font-normal">
+          <blockquote className="font-serif text-2xl sm:text-3xl lg:text-5xl text-primary leading-tight font-normal">
             “The gap between where you are and where you can be is not a
             flaw. It is an invitation.”
           </blockquote>
 
           <div className="mx-auto h-px w-16 bg-terracotta" />
 
-          <p className="max-w-2xl mx-auto font-sans text-body-lg text-on-surface-variant leading-relaxed">
+          <p className="max-w-2xl mx-auto font-sans text-body-md sm:text-body-lg text-on-surface-variant leading-relaxed">
             We are creating a space where emotional intelligence,
             mindfulness, and meaningful personal growth can continue
             beyond an audit, a workshop, or a retreat.
@@ -294,9 +294,9 @@ export default function CommunityPage() {
       </section>
 
       {/* SOCIAL CONNECTION */}
-      <section id="social-channels" className="w-full bg-surface-alt-gradient py-20 lg:py-28 border-b border-border-alt scroll-mt-20">
+      <section id="social-channels" className="w-full bg-surface-alt-gradient py-16 sm:py-20 lg:py-28 border-b border-border-alt scroll-mt-20">
 
-        <div className="max-w-[1000px] mx-auto px-6 lg:px-16 text-center space-y-10">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-16 text-center space-y-8 sm:space-y-10">
 
           <SectionHeading
             align="center"
@@ -305,13 +305,14 @@ export default function CommunityPage() {
             subtitle="Discover reflections, insights, and updates across Instagram, LinkedIn, and our WhatsApp Channel."
           />
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full sm:w-auto">
 
             <Button
               href={INSTAGRAM_URL}
               isExternal
               variant="secondary"
               size="lg"
+              className="w-full sm:w-auto"
               aria-label="Follow Soulfuli on Instagram"
             >
               <Instagram className="mr-2 h-4 w-4" />
@@ -323,6 +324,7 @@ export default function CommunityPage() {
               isExternal
               variant="secondary"
               size="lg"
+              className="w-full sm:w-auto"
               aria-label="Connect with Soulfuli on LinkedIn"
             >
               <Linkedin className="mr-2 h-4 w-4" />
@@ -335,6 +337,7 @@ export default function CommunityPage() {
                 isExternal
                 variant="secondary"
                 size="lg"
+                className="w-full sm:w-auto"
                 aria-label="Follow Soulfuli on WhatsApp Channel"
               >
                 <WhatsAppIcon className="mr-2 h-4 w-4" />
@@ -345,6 +348,7 @@ export default function CommunityPage() {
                 href="/contact?program=community"
                 variant="secondary"
                 size="lg"
+                className="w-full sm:w-auto"
                 aria-label="WhatsApp Channel — request channel invite via Contact Us"
                 title="WhatsApp Channel link pending official URL"
               >
@@ -357,6 +361,7 @@ export default function CommunityPage() {
               href="/contact"
               variant="primary"
               size="lg"
+              className="w-full sm:w-auto"
             >
               <Mail className="mr-2 h-4 w-4" />
               Contact Us

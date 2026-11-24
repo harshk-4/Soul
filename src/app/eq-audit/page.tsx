@@ -12,7 +12,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function EqAuditPage() {
   return (
-    <div className="w-full min-h-screen bg-surface px-6 lg:px-16 pt-8 pb-24">
+    <div className="w-full min-h-screen bg-surface px-4 sm:px-6 lg:px-16 pt-6 sm:pt-8 pb-16 sm:pb-24">
       <div className="max-w-[1240px] mx-auto">
         <AuditContainer />
       </div>

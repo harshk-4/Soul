@@ -33,9 +33,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const sizes = {
-      sm: 'px-4 py-2 text-[13px]',
-      md: 'px-6 py-3 text-[14px]',
-      lg: 'px-8 py-3.5 text-[15px]',
+      sm: 'px-3.5 sm:px-4 py-2 text-[13px]',
+      md: 'px-5 sm:px-6 py-2.5 sm:py-3 text-[14px]',
+      lg: 'px-6 sm:px-8 py-3 sm:py-3.5 text-[14px] sm:text-[15px]',
     };
 
     const combinedClassName = cn(

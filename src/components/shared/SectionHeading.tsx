@@ -32,7 +32,7 @@ export function SectionHeading({
           {eyebrow}
         </Badge>
       )}
-      <h2 className="font-serif text-headline-lg lg:text-display-lg text-primary tracking-tight font-normal leading-[1.12]">
+      <h2 className="font-serif text-[26px] sm:text-[34px] lg:text-display-lg text-primary tracking-tight font-normal leading-[1.14]">
         {title}
       </h2>
       {subtitle && (

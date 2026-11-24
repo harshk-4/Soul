@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const SITE_NAME = 'SoulfulI';
 export const SITE_ALTERNATE_NAME = 'Soulfulli';
 export const SITE_URL = 'https://www.soulfuli.org';
-export const OFFICIAL_EMAIL = 'soulfuli.global@gmail.com';
+export const OFFICIAL_EMAIL = 'connect@soulfuli.org';
 export const INSTAGRAM_URL =
   'https://www.instagram.com/soulfuli_official?obrf=NzlubWljcXcwbW9o&utm_source=qr';
 export const LINKEDIN_URL = 'https://www.linkedin.com/company/soulfuli/';
@@ -19,10 +19,10 @@ export const DEFAULT_OG_IMAGE_PATH = '/images/og-soulfuli.png';
 
 export const COMPANY_NAME = 'SOULFULL Collective LLP';
 export const OFFICE_ADDRESS =
-  '252-A, Office No. 303, Second Floor, Lakshaydeep Building, Sant Nagar, East of Kailash, Delhi – 110065.';
+  '252-A, Office No. 303, Second Floor, Lakshaydeep Building, Sant Nagar, East of Kailash, Delhi, India – 110065.';
 export const OFFICIAL_PHONES = [
-  { display: '9137878270', tel: '+919137878270' },
-  { display: '6202781011', tel: '+916202781011' },
+  { display: '+91 9137878270', tel: '+919137878270' },
+  { display: '+91 6202781011', tel: '+916202781011' },
 ] as const;
 
 export const HOMEPAGE_TITLE =

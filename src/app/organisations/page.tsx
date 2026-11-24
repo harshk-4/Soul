@@ -51,35 +51,35 @@ export default function OrganisationsPage() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* SECTION 1: HERO */}
-      <section className="w-full px-6 lg:px-16 pt-12 lg:pt-20 pb-16 lg:pb-24 bg-surface border-b border-outline-variant/60">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          <div className="lg:col-span-6 space-y-6">
+      <section className="w-full px-4 sm:px-6 lg:px-16 pt-8 sm:pt-12 lg:pt-20 pb-12 sm:pb-16 lg:pb-24 bg-surface border-b border-outline-variant/60">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-6 space-y-5 sm:space-y-6">
             <Badge variant="sand" dot>
               Corporate Training
             </Badge>
             <div className="space-y-3">
-              <h1 className="font-serif text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-normal">
+              <h1 className="font-serif text-[30px] sm:text-[40px] lg:text-display-lg leading-[1.12] text-primary tracking-tight font-normal">
                 Corporate Training
               </h1>
-              <p className="font-serif text-xl lg:text-2xl text-secondary italic font-normal leading-snug">
+              <p className="font-serif text-lg sm:text-xl lg:text-2xl text-secondary italic font-normal leading-snug">
                 Leading with the heart, not just the numbers.
               </p>
             </div>
-            <p className="font-sans text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+            <p className="font-sans text-body-md sm:text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
               Organisations invest heavily in skills and strategy, yet leaders and teams often carry pressure, friction, and disconnection quietly. Soulfuli brings emotional intelligence, self-awareness, and human-centred communication into the way people work and lead.
             </p>
-            <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Button href="#consultation" variant="primary" size="lg" className="rounded-full">
+            <div className="pt-3 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <Button href="#consultation" variant="primary" size="lg" className="w-full sm:w-auto rounded-full text-center">
                 Discuss a Corporate Training Program
               </Button>
-              <Button href="#threads" variant="secondary" size="lg" className="rounded-full">
+              <Button href="#threads" variant="secondary" size="lg" className="w-full sm:w-auto rounded-full text-center">
                 Explore Our Approach
               </Button>
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative">
-            <div className="rounded-2xl overflow-hidden shadow-[0_24px_64px_-16px_rgba(31,42,36,0.18)] border border-border-alt/80 bg-surface-alt group">
+          <div className="lg:col-span-6 relative w-full">
+            <div className="max-w-[560px] mx-auto lg:max-w-none rounded-2xl overflow-hidden shadow-[0_24px_64px_-16px_rgba(31,42,36,0.18)] border border-border-alt/80 bg-surface-alt group">
               <div className="relative w-full aspect-[3/2] overflow-hidden bg-surface-alt">
                 <Image
                   src="/images/corporate-training.jpeg"
@@ -94,14 +94,14 @@ export default function OrganisationsPage() {
               </div>
 
               {/* Editorial Caption Strip */}
-              <div className="bg-primary px-5 py-4 text-white">
+              <div className="bg-primary px-4 sm:px-5 py-3 sm:py-4 text-white">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-tertiary" />
                   <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-white/80 font-medium">
                     Corporate Training &amp; Conscious Leadership
                   </span>
                 </div>
-                <p className="font-serif text-[16px] text-[#FDFBF7] italic leading-snug">
+                <p className="font-serif text-[15px] sm:text-[16px] text-[#FDFBF7] italic leading-snug">
                   &ldquo;Emotional agility and human-centred communication under pressure.&rdquo;
                 </p>
               </div>
@@ -111,8 +111,8 @@ export default function OrganisationsPage() {
       </section>
 
       {/* SECTION 2: 4 CORE COMPETENCIES */}
-      <section id="threads" className="w-full py-20 lg:py-32 bg-surface-alt-gradient border-b border-border-alt scroll-mt-20">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-16 space-y-16">
+      <section id="threads" className="w-full py-16 sm:py-20 lg:py-32 bg-surface-alt-gradient border-b border-border-alt scroll-mt-20">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 space-y-12 sm:space-y-16">
           <SectionHeading
             eyebrow="Core Competencies"
             title="Four Pillars of Human-Centred Leadership"

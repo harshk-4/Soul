@@ -31,20 +31,20 @@ export default function WhatWeOfferPage() {
         enableSubtleZoom={true}
         priority
         className="border-b border-outline-variant/60"
-        containerClassName="w-full px-6 lg:px-16 pt-24 lg:pt-36 pb-24 lg:pb-36"
+        containerClassName="w-full px-4 sm:px-6 lg:px-16 pt-20 sm:pt-28 lg:pt-36 pb-20 sm:pb-28 lg:pb-36"
       >
-        <div className="max-w-[1240px] mx-auto space-y-7 text-white">
+        <div className="max-w-[1240px] mx-auto space-y-6 sm:space-y-7 text-white">
           <ImageEyebrow className="text-white">
             Ecosystem Overview
           </ImageEyebrow>
 
-          <ImageHeading as="h1" className="text-[38px] leading-[44px] sm:text-[48px] sm:leading-[56px] lg:text-[56px] lg:leading-[64px] max-w-4xl">
+          <ImageHeading as="h1" className="text-[30px] leading-[36px] sm:text-[44px] sm:leading-[52px] lg:text-[56px] lg:leading-[64px] max-w-4xl">
             Portals into self-knowledge and intentional living.
           </ImageHeading>
 
           <div className="w-16 h-0.5 bg-white/80 rounded-full" aria-hidden="true" />
 
-          <ImageParagraph className="text-body-lg max-w-2xl text-white/95 leading-[1.8]">
+          <ImageParagraph className="text-body-md sm:text-body-lg max-w-2xl text-white/95 leading-[1.8]">
             Whether you are beginning with personal self-discovery,
             stepping into a mountain retreat, or transforming how your
             organisation communicates, Soulfuli offers grounded human
@@ -54,8 +54,8 @@ export default function WhatWeOfferPage() {
       </ImageSection>
 
       {/* SECTION 2: THE SOULFULI ECOSYSTEM */}
-      <section className="relative w-full py-20 lg:py-28 overflow-hidden border-b border-border-alt bg-surface-alt-gradient">
-        <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-16 space-y-14">
+      <section className="relative w-full py-16 sm:py-20 lg:py-28 overflow-hidden border-b border-border-alt bg-surface-alt-gradient">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16 space-y-12 sm:space-y-14">
           <SectionHeading
             align="center"
             eyebrow="The Soulfuli Ecosystem"
