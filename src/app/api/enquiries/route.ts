@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server';
 import { enquiryPayloadSchema } from '@/lib/validation/schemas';
 import { deliverSubmission } from '@/lib/server/delivery';
 import { OFFICIAL_EMAIL } from '@/lib/seo/metadata';
+import {
+  saveOrFindRegistration,
+  updateGoogleFormsSyncStatus,
+  updateDeliveryChannels,
+} from '@/lib/server/registrationStore';
 
 const tableByType = {
   contact: 'program_enquiries',
@@ -9,38 +14,6 @@ const tableByType = {
   school: 'school_enquiries',
   retreat: 'retreat_enquiries',
 } as const;
-
-// In-memory deduplication store: prevents rapid double-clicks and repeated email sends
-const recentSubmissions = new Map<string, number>();
-const DEDUPLICATION_WINDOW_MS = 2 * 60 * 1000; // 2 minutes
-
-function isDuplicateSubmission(
-  type: string,
-  email: string,
-  phone?: string
-): boolean {
-  const cleanEmail = email.toLowerCase().trim();
-  const cleanPhone = (phone || '').replace(/\D/g, '');
-  const key = `${type}:${cleanEmail}:${cleanPhone}`;
-  const now = Date.now();
-  const previous = recentSubmissions.get(key);
-
-  if (previous && now - previous < DEDUPLICATION_WINDOW_MS) {
-    return true;
-  }
-
-  // Periodic pruning of stale keys
-  if (recentSubmissions.size > 200) {
-    for (const [k, time] of recentSubmissions.entries()) {
-      if (now - time > 10 * 60 * 1000) {
-        recentSubmissions.delete(k);
-      }
-    }
-  }
-
-  recentSubmissions.set(key, now);
-  return false;
-}
 
 function formatEnquiryText(
   type: string,
@@ -79,6 +52,14 @@ export async function POST(request: Request) {
         fieldErrors[key] = issue.message;
       }
     }
+    console.warn('[EnquiriesAPI] 400 Bad Request - Validation failed:', {
+      type: (rawBody as { type?: string })?.type,
+      fieldErrors,
+      rawIssues: parsed.error.issues.map((i) => ({
+        path: i.path.join('.'),
+        message: i.message,
+      })),
+    });
     return NextResponse.json(
       {
         ok: false,
@@ -90,21 +71,59 @@ export async function POST(request: Request) {
   }
 
   const { type, data } = parsed.data;
-
-  // Deduplication check to prevent duplicate emails and double submissions
   const contactPhone = 'phone' in data ? (data.phone as string) : undefined;
-  if (isDuplicateSubmission(type, data.email, contactPhone)) {
-    return NextResponse.json(
-      {
-        ok: true,
-        duplicate: true,
-        message:
-          type === 'retreat'
-            ? 'Thank you for registering for the Quiet Bloom Retreat. Your registration details have already been received.'
-            : 'Your inquiry has already been received.',
-      },
-      { status: 200 }
-    );
+
+  // 1. Safely store or retrieve registration locally
+  const { record, isDuplicate } = await saveOrFindRegistration({
+    type,
+    email: data.email,
+    phone: contactPhone,
+    data: data as Record<string, unknown>,
+  });
+
+  // 2. Duplicate handling with separate Google Forms synchronization awareness
+  if (type === 'retreat') {
+    // Only return early if the registration was ALREADY verified and synchronized to Google Forms
+    if (isDuplicate && record.googleForms.synced) {
+      console.log(
+        '[EnquiriesAPI] Retreat registration is already synchronized with Google Forms:',
+        record.email
+      );
+      return NextResponse.json(
+        {
+          ok: true,
+          duplicate: true,
+          googleFormsSynced: true,
+          channels: record.channels,
+          message:
+            'Thank you for registering for the Quiet Bloom Retreat. Your registration details have already been received and verified.',
+        },
+        { status: 200 }
+      );
+    }
+    // If isDuplicate is true but record.googleForms.synced is FALSE,
+    // we DO NOT skip Google Forms. We proceed to retry synchronization.
+    if (isDuplicate && !record.googleForms.synced) {
+      console.log(
+        '[EnquiriesAPI] Registration exists locally but Google Forms sync is pending/failed. Retrying sync for:',
+        record.email
+      );
+    }
+  } else {
+    // For non-retreat enquiries, deduplicate rapid duplicate submissions (2-minute window)
+    if (
+      isDuplicate &&
+      Date.now() - new Date(record.createdAt).getTime() < 2 * 60 * 1000
+    ) {
+      return NextResponse.json(
+        {
+          ok: true,
+          duplicate: true,
+          message: 'Your inquiry has already been received.',
+        },
+        { status: 200 }
+      );
+    }
   }
 
   const labelMap = {
@@ -139,28 +158,65 @@ export async function POST(request: Request) {
     isRetreat: type === 'retreat',
     retreatData:
       type === 'retreat'
-        ? (data as Record<string, string | undefined>)
+        ? (data as Record<string, unknown>)
         : undefined,
   });
 
+  // 3. Update local registration store with Google Forms synchronization outcome
+  if (type === 'retreat') {
+    const formsResult = delivery.googleForms;
+    if (formsResult) {
+      await updateGoogleFormsSyncStatus(record.id, {
+        synced: formsResult.saved,
+        error: formsResult.error,
+        responseSnippet: formsResult.responseSnippet,
+      });
+    }
+  }
+
+  if (delivery.channels.length > 0) {
+    await updateDeliveryChannels(record.id, delivery.channels);
+  }
+
+  // 4. Return appropriate response
   if (!delivery.delivered) {
+    const isRetreat = type === 'retreat';
+    console.error('[EnquiriesAPI] Upstream delivery failed:', {
+      type,
+      configured: delivery.configured,
+      error: delivery.errorMessage,
+      googleFormsError: delivery.googleForms?.error,
+    });
+
     return NextResponse.json(
       {
         ok: false,
+        duplicate: isDuplicate,
+        googleFormsSynced: false,
         code: delivery.configured ? 'DELIVERY_FAILED' : 'DELIVERY_NOT_CONFIGURED',
-        error: delivery.errorMessage,
+        error:
+          delivery.errorMessage ||
+          'Delivery failed. Your registration has been saved locally and will be synchronized.',
+        syncError: delivery.googleForms?.error,
       },
       { status: delivery.configured ? 502 : 503 }
     );
   }
 
+  const isGoogleFormsSynced =
+    type === 'retreat' ? Boolean(delivery.googleForms?.saved) : undefined;
+
   return NextResponse.json(
     {
       ok: true,
+      duplicate: isDuplicate,
+      ...(type === 'retreat' ? { googleFormsSynced: isGoogleFormsSynced } : {}),
       channels: delivery.channels,
       message:
         type === 'retreat'
-          ? 'Thank you for registering for the Quiet Bloom Retreat.'
+          ? isDuplicate
+            ? 'Your registration details have now been synchronized with Google Forms.'
+            : 'Thank you for registering for the Quiet Bloom Retreat.'
           : 'Your inquiry has been delivered.',
     },
     { status: 200 }

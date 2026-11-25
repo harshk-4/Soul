@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import SectionHeading from '@/components/shared/SectionHeading';
-import RetreatEnquiryForm from '@/components/forms/RetreatEnquiryForm';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
+import QuietBloomRegistrationForm from '@/components/forms/QuietBloomRegistrationForm';
 import { Feather, Clock, MapPin, Users, Calendar, Download, ArrowDown } from 'lucide-react';
 import {
   ImageSection,
@@ -244,7 +244,7 @@ export default function QuietBloomPage() {
       {/* SECTION 4: APPLICATION & INQUIRY FORM */}
       <section id="apply" className="w-full py-16 sm:py-20 lg:py-32 bg-surface scroll-mt-20">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-16">
-          <div className="max-w-2xl mx-auto space-y-8 sm:space-y-10">
+          <div className="max-w-3xl mx-auto space-y-8 sm:space-y-10">
             <div className="text-center space-y-3">
               <Badge variant="terracotta" dot>
                 12 February – 17 February, 2027 · Registration
@@ -257,8 +257,8 @@ export default function QuietBloomPage() {
               </p>
             </div>
 
-            <div className="bg-surface-alt p-5 sm:p-8 lg:p-10 rounded-2xl border border-border-alt shadow-sm">
-              <RetreatEnquiryForm />
+            <div className="w-full bg-surface-alt rounded-2xl border border-border-alt shadow-sm p-6 sm:p-8 lg:p-10">
+              <QuietBloomRegistrationForm />
             </div>
           </div>
         </div>

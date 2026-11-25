@@ -76,24 +76,46 @@ export const retreatEnquirySchema = z.object({
   phone: z
     .string()
     .trim()
-    .min(7, 'Please provide a valid contact number for WhatsApp / SMS')
+    .min(7, 'Please provide a valid contact number for WhatsApp')
     .refine(
-      (val) => /^[\d+\-\s()]{7,20}$/.test(val),
-      'Please enter a valid phone number'
+      (val) => /^[\d+\-\s().]{7,30}$/.test(val),
+      'Please enter a valid phone number with country code'
     ),
-  preferredSeason: z.string().trim().min(2, 'Please select your preferred season or gathering'),
+  age: z.string().trim().min(1, 'Please enter your age').optional(),
+  residence: z
+    .string()
+    .trim()
+    .min(2, 'Please provide your city and country of residence')
+    .optional(),
+  accommodation: z.enum(['Yes', 'No']).optional(),
+  transportation: z.boolean().optional(),
+  dietary: z.string().trim().optional(),
+  medical: z.string().trim().optional(),
+  emergencyContact: z.string().trim().optional(),
+  preferredSeason: z
+    .string()
+    .trim()
+    .refine((val) => val === undefined || val.length >= 1, {
+      message: 'Please select your preferred season or gathering',
+    })
+    .optional(),
   roomPreference: z
     .string()
     .trim()
-    .refine(
-      (val): val is (typeof roomPreferenceOptions)[number] =>
-        (roomPreferenceOptions as readonly string[]).includes(val),
-      'Please select an accommodation preference'
-    ),
+    .refine((val) => val === undefined || val.length >= 1, {
+      message: 'Please select an accommodation preference',
+    })
+    .optional(),
   intention: z
     .string()
     .trim()
-    .min(15, 'Please share your intention or hope for this retreat time (at least 15 characters)'),
+    .min(10, 'Please share your intention or hope for this retreat time (at least 10 characters)'),
+  consent: z
+    .boolean()
+    .optional()
+    .refine((val) => val === undefined || val === true, {
+      message: 'Please confirm consent to proceed with registration',
+    }),
 });
 
 export type RetreatEnquiryData = z.infer<typeof retreatEnquirySchema>;
