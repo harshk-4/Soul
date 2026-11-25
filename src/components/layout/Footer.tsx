@@ -66,7 +66,7 @@ export function Footer() {
                     className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-bright/10 hover:bg-surface-bright/20 border border-surface-bright/20 text-surface-bright text-xs font-sans transition-all duration-200 hover:text-white hover:border-surface-bright/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                     aria-label="Follow Soulfuli on WhatsApp Channel"
                   >
-                    <WhatsAppIcon className="w-4 h-4 text-secondary-fixed transition-transform duration-200 group-hover:scale-110" />
+                    <WhatsAppIcon className="w-4 h-4 text-[#25D366] transition-transform duration-200 group-hover:scale-110" />
                     <span>WhatsApp Channel</span>
                   </a>
                 ) : (
@@ -77,7 +77,7 @@ export function Footer() {
                     aria-label="WhatsApp Channel — contact us for channel invite"
                     title="WhatsApp Channel link pending official URL"
                   >
-                    <WhatsAppIcon className="w-4 h-4 text-secondary-fixed transition-transform duration-200 group-hover:scale-110" />
+                    <WhatsAppIcon className="w-4 h-4 text-[#25D366] transition-transform duration-200 group-hover:scale-110" />
                     <span>WhatsApp Channel</span>
                   </Link>
                 )}
@@ -152,6 +152,18 @@ export function Footer() {
                   <Link href="/contact" prefetch={true} className="hover:text-surface-bright transition-colors">
                     Contact Us
                   </Link>
+                </li>
+                <li>
+                  <a
+                    href={WHATSAPP_CHANNEL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-surface-bright transition-colors group"
+                    aria-label="Follow us on WhatsApp (opens in a new tab)"
+                  >
+                    <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] transition-transform duration-200 group-hover:scale-110" />
+                    <span>Follow us on WhatsApp</span>
+                  </a>
                 </li>
                 <li>
                   <a

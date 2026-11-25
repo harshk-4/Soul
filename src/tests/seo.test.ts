@@ -12,6 +12,8 @@ import {
   SITE_URL,
   OFFICIAL_LOGO_PATH,
   DEFAULT_OG_IMAGE_PATH,
+  WHATSAPP_CHANNEL_URL,
+  QUIET_BLOOM_WHATSAPP_CHANNEL_URL,
 } from '@/lib/seo/metadata';
 
 describe('SEO, brand identity, canonical, structured data, sitemap, and robots configuration', () => {
@@ -139,5 +141,17 @@ describe('SEO, brand identity, canonical, structured data, sitemap, and robots c
         permanent: true,
       },
     ]);
+  });
+
+  it('configures official Quiet Bloom WhatsApp Channel and includes it in social links', () => {
+    expect(QUIET_BLOOM_WHATSAPP_CHANNEL_URL).toBe(
+      'https://whatsapp.com/channel/0029VbDmzH90VycEedVzB92X'
+    );
+    expect(WHATSAPP_CHANNEL_URL).toBe(
+      'https://whatsapp.com/channel/0029VbDmzH90VycEedVzB92X'
+    );
+    const schema = getBrandJsonLd();
+    const org = schema['@graph'].find((n) => n['@type'] === 'Organization') as Record<string, unknown>;
+    expect(org.sameAs).toContain('https://whatsapp.com/channel/0029VbDmzH90VycEedVzB92X');
   });
 });

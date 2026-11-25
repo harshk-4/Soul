@@ -4,6 +4,7 @@ import SectionHeading from '@/components/shared/SectionHeading';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import QuietBloomRegistrationForm from '@/components/forms/QuietBloomRegistrationForm';
+import QuietBloomWhatsAppSection from '@/components/sections/QuietBloomWhatsAppSection';
 import { Feather, Clock, MapPin, Users, Calendar, Download, ArrowDown } from 'lucide-react';
 import {
   ImageSection,
@@ -263,6 +264,9 @@ export default function QuietBloomPage() {
           </div>
         </div>
       </section>
+
+      {/* SECTION 5: STAY CONNECTED — WHATSAPP CHANNEL */}
+      <QuietBloomWhatsAppSection />
     </div>
   );
 }

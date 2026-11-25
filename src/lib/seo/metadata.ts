@@ -7,8 +7,13 @@ export const OFFICIAL_EMAIL = 'connect@soulfuli.org';
 export const INSTAGRAM_URL =
   'https://www.instagram.com/soulfuli_official?obrf=NzlubWljcXcwbW9o&utm_source=qr';
 export const LINKEDIN_URL = 'https://www.linkedin.com/company/soulfuli/';
+export const QUIET_BLOOM_WHATSAPP_CHANNEL_URL =
+  'https://whatsapp.com/channel/0029VbDmzH90VycEedVzB92X';
+export const QUIET_BLOOM_WHATSAPP_CHANNEL_NAME =
+  'Quiet Bloom Retreat by SoulfulI';
 export const WHATSAPP_CHANNEL_URL =
-  process.env.NEXT_PUBLIC_WHATSAPP_CHANNEL_URL?.trim() || '';
+  process.env.NEXT_PUBLIC_WHATSAPP_CHANNEL_URL?.trim() ||
+  QUIET_BLOOM_WHATSAPP_CHANNEL_URL;
 export const RETREAT_BROCHURE_URL =
   '/brochures/soulfulli-retreat-brochure.pdf';
 
